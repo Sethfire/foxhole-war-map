@@ -1,20 +1,14 @@
 import React from "react";
 
 import L from 'leaflet';
-import {Map, TileLayer, Marker, Circle, LayerGroup} from 'react-leaflet';
+import {Map, TileLayer, Marker, Circle, LayerGroup, LayersControl, Popup} from 'react-leaflet';
 
 import {mapBounds, mapHeight, mapWidth, mapOrigin, o, w, k, mapArray} from '../mapData.js';
 import {MapItem} from './MapItem.js';
 import MapRegions from './MapRegions.js';
+import MapItems from './MapItems.js';
 
-/*
-var testIcon = L.icon({
-    iconUrl: 'https://raw.githubusercontent.com/the-fellowship-of-the-warapi/Assets/master/Map%20Icons/Bases/MapIconForwardBase1.png',
-    iconSize: [24,24],
-    iconAnchor: [12,12],
-    popupAnchor: [0, -24]
-});
-*/
+const {BaseLayer, Overlay} = LayersControl;
  
 class WarMap extends React.Component{
 
@@ -59,9 +53,18 @@ class WarMap extends React.Component{
                 maxBounds={[[-256,-50],[0,306]]}
                 maxBoundsViscosity={1.0}
             >
-                <TileLayer url='https://raw.githubusercontent.com/Kastow/Foxhole-Map-Tiles/master/Sat%20Tiles/{z}/{z}_{x}_{y}.png' />
-                <Marker position={[-200,50]} />
                 <MapRegions />
+				<MapItems />
+				
+				<LayersControl position="topright">
+					<BaseLayer checked name="Original Map">
+						<TileLayer url='https://raw.githubusercontent.com/Kastow/Foxhole-Map-Tiles/master/Tiles/{z}/{z}_{x}_{y}.png' />
+					</BaseLayer>
+					
+					<BaseLayer name="Satellite Map">
+						<TileLayer url='https://raw.githubusercontent.com/Kastow/Foxhole-Map-Tiles/master/Sat%20Tiles/{z}/{z}_{x}_{y}.png' />
+					</BaseLayer>
+				</LayersControl>		
             </Map>
         );
     }

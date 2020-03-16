@@ -1,6 +1,5 @@
 * {
     font-family: Helvetica;
-    color: #ffffff;
 }
 
 body {
@@ -20,7 +19,9 @@ body {
     vertical-align: middle;
     display: inline;
     margin: 5px;
+	
     font-size: 28px;
+    font-family: Helvetica;
     color: #AEBDBD;
 }
 
@@ -36,6 +37,7 @@ body {
 
     text-align: center;
     font-size: 24px;
+    color: #ffffff;
 }
 
 .warMap {
@@ -51,4 +53,5 @@ body {
     margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;
+    color: #ffffff;
 }
