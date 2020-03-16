@@ -4,7 +4,6 @@ import L from 'leaflet';
 import {Map, TileLayer, Marker, Circle, LayerGroup, LayersControl, Popup} from 'react-leaflet';
 
 import {mapBounds, mapHeight, mapWidth, mapOrigin, o, w, k, mapArray} from '../mapData.js';
-import {MapItem} from './MapItem.js';
 import MapRegions from './MapRegions.js';
 import MapItems from './MapItems.js';
 
@@ -18,18 +17,6 @@ class WarMap extends React.Component{
         this.state = {
             mapItems: 0
         }
-    }
-
-    componentDidMount() {
-        fetch("https://war-service-live.foxholeservices.com/api/worldconquest/maps/DeadLandsHex/dynamic/public")
-            .then(response => response.json())
-            .then(data => {
-                for (var i in data.mapItems) {
-                    let mapItem = data.mapItems[i];
-                    let mapItemObject = new MapItem(1,mapItem.teamId,mapItem.iconType,mapItem.x,mapItem.y,mapItem.flags);
-                    console.log(mapItemObject);
-                }
-            });
     }
 
     convertCoords(regionId,x,y) {

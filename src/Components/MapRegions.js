@@ -9,16 +9,20 @@ class MapRegions extends React.Component{
         super();
 
         const regionBorders = mapArray.map(region => {
-            let item = region.center;
-            return ([
-                [item[0],item[1]-w/2],
-                [item[0]+k/2,item[1]-w/4],
-                [item[0]+k/2,item[1]+w/4],
-                [item[0],item[1]+w/2],
-                [item[0]-k/2,item[1]+w/4],
-                [item[0]-k/2,item[1]-w/4],
-            ]);
+			if (region.name != '') {
+				let item = region.center;
+				return ([
+					[item[0],item[1]-w/2],
+					[item[0]+k/2,item[1]-w/4],
+					[item[0]+k/2,item[1]+w/4],
+					[item[0],item[1]+w/2],
+					[item[0]-k/2,item[1]+w/4],
+					[item[0]-k/2,item[1]-w/4],
+				]);
+			}
         })
+		
+		console.log(regionBorders);
 
         this.state = {
             regionBorders: regionBorders
