@@ -2,20 +2,35 @@
     font-family: Helvetica;
 }
 
-body {
-    padding: 5px;
+html, body {
     margin: 0px;
+    padding: 5px;
+    height: 100%;
     
-    background-color: #000000; 
+    background-color: #000000;
 }
 
-.header {
+#container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#header {
     margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;
+
+    flex-basis: 46px;
 }
 
-.headerText {
+#body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#headerText {
     vertical-align: middle;
     display: inline;
     margin: 5px;
@@ -30,26 +45,38 @@ body {
     vertical-align: middle;
 }
 
-.warStatus {
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#warStatus {
     margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;
+
+    height: 120px;
+    width: 240px;
+    max-width: 100%;
+    float: left;
 
     text-align: center;
     font-size: 24px;
     color: #ffffff;
 }
 
-.warMap {
+#warMap {
     margin: 5px;
 
-    height: 90vh;
+    width: 600px;
+    height: 600px;
 
     border: 1px solid #363636;
     background-color: #222222;
 }
 
-.warTime {
+#warTime {
     margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;

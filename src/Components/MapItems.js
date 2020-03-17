@@ -1,7 +1,7 @@
 import React from 'react';
 
 import L from 'leaflet';
-import {Marker, LayerGroup} from 'react-leaflet';
+import {Marker, LayerGroup, Tooltip} from 'react-leaflet';
 import {o, w, k, mapArray} from '../mapData.js';
 
 import MapItem from './MapItem.js';
@@ -44,7 +44,9 @@ class MapItems extends React.Component{
 
     render() {
         const mapMarkers = this.state.mapMarkers.map(mapItem =>
-			<Marker icon={mapItem.iconImage} position={[mapItem.y,mapItem.x]} />
+			<Marker icon={mapItem.iconImage} position={[mapItem.y,mapItem.x]}>
+                <Tooltip>{mapItem.teamPrefix}{mapItem.description}<br />{mapItem.regionName} </Tooltip> 
+            </Marker> 
 		);
 		console.log(this.state.mapMarkers);
         return(

@@ -20,7 +20,7 @@ class WarMap extends React.Component{
 
     render() {
         return (
-            <Map className="warMap"
+            <Map id="warMap"
                 zoomControl={true}
                 attributionControl={true}
         

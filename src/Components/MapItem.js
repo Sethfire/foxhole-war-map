@@ -1,8 +1,10 @@
 import * as MapIcon from '../IconData.js';
+import * as MapData from '../mapData.js';
 
 class MapItem{
     constructor(regionId, teamId, iconType, x, y, flags) {
-        this.regionId = regionId;
+		this.regionId = regionId;
+		this.regionName = MapData.mapArray[regionId-3].name;
         this.iconType = iconType;
         this.x = x;
         this.y = y;
@@ -15,11 +17,11 @@ class MapItem{
 				break;
 			case 'COLONIALS':
 				this.teamId = 1;
-				this.teamPrefix = 'Colonial';
+				this.teamPrefix = 'Colonial ';
 				break;
 			case 'WARDENS':
 				this.teamId = 2;
-				this.teamPrefix = 'Warden';
+				this.teamPrefix = 'Warden ';
 				break;
 			default:
 				console.log('ERROR: Unknown TeamID - '+teamId);

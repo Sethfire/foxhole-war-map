@@ -3,7 +3,7 @@ import React from "react";
 class WarTime extends React.Component{
     render() {
         return (
-            <div className='warTime'>
+            <div id='warTime'>
                 <p>Current Ingame Time</p>
             </div>
         );
