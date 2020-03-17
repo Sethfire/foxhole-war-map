@@ -52,7 +52,7 @@ class MapItem{
 				break;
 			case 18:
 				this.description = 'Shipyard';
-				//this.iconImage = MapIcon.Shipyard[this.teamId];
+				this.iconImage = MapIcon.Shipyard[this.teamId];
 				break;
 			case 20:
 				this.description = 'Salvage Field';
@@ -70,10 +70,17 @@ class MapItem{
 				this.description = 'Sulfur Field';
 				this.iconImage = MapIcon.Sulfur;
 				break;
-			case 23:
-				this.description = 'Sulfur Field';
-				this.iconImage = MapIcon.Sulfur;
+			case 27:
+				this.description = 'Keep';
+				this.iconImage = MapIcon.Keep;
 				break;
+			case 28:
+				this.description = 'Observation Tower';
+				this.iconImage = MapIcon.ObservationTower;
+				break;
+			case 29: //Unused
+				this.description = 'Fort';
+				//this.iconImage = MapIcon.Fort;
 			case 32:
 				this.description = 'Sulfur Mine';
 				this.iconImage = MapIcon.SulfurMine;
@@ -89,6 +96,18 @@ class MapItem{
 			case 35:
 				this.description = 'Safehouse';
 				this.iconImage = MapIcon.Safehouse[this.teamId];
+				break;
+			case 36:
+				this.description = 'Armory';
+				this.iconImage = MapIcon.Armory[this.teamId];
+				break;
+			case 37: //TODO: Rocket Site
+				this.description = 'Rocket Site';
+				this.iconImage = MapIcon.RocketSite[0];
+				break;
+			case 39:
+				this.description = 'Construction Yard';
+				this.iconImage = MapIcon.ConstructionYard[0];
 				break;
 			case 38:
 				this.description = 'Salvage Mine';
@@ -106,41 +125,9 @@ class MapItem{
                 this.description = 'Relic Base';
                 this.iconImage = MapIcon.RelicBase[this.teamId];
 				break;
-            //default:
-            //    console.log(iconType);
-            /*
-            case 20: //Scrapyard
-              iconType = "Icon_salvage";break;
-            case 21: //Component Yard
-              iconType = "Icon_component";break;
-            case 23: //Sulfur Node
-              iconType = "Icon_sulfur";break;
-            case 27: //Keep
-              iconType = "Icon_keep";break;
-            case 28: //Tower
-              iconType = "Icon_tower";break;
-            case 29: //Fort
-              iconType = "Icon_fort";break;
-            case 38: //Salvage Mine
-              iconType = "Icon_salvagemine";break;
-            case 32: //Sulfur Mine
-              iconType = "Icon_sulfurmine";break;
-            case 36: //Advanced Ammo Factory
-              iconType = "Icon_ammofactory";break;
-            case 37: //Rocket Site
-              iconType = "Icon_rocket";break;
-            case 39: //Construction Yard
-              iconType = "Icon_constructionyard";break;
-            case 40: //Component Mine
-              iconType = "Icon_componentmine";break;
-            case 41: //Oil Well
-              iconType = "Icon_oilwell";break;
-            case 44: //Cursed Fort
-              iconType = "Icon_cursed";break;
-            */
+            default:
+                console.log('ERROR: Unknown IconType - '+iconType);
         }
-
-		console.log(this);
     }
 }
 

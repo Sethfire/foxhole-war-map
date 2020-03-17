@@ -1,9 +1,8 @@
 import React from "react";
 
 import L from 'leaflet';
-import {Map, TileLayer, Marker, Circle, LayerGroup, LayersControl, Popup} from 'react-leaflet';
+import {Map, TileLayer, LayerGroup, LayersControl} from 'react-leaflet';
 
-import {mapBounds, mapHeight, mapWidth, mapOrigin, o, w, k, mapArray} from '../mapData.js';
 import MapRegions from './MapRegions.js';
 import MapItems from './MapItems.js';
 
@@ -19,12 +18,6 @@ class WarMap extends React.Component{
         }
     }
 
-    convertCoords(regionId,x,y) {
-        var xcoord = mapArray[regionId].center[1] - (w/2) + (w*x);
-        var ycoord = mapArray[regionId].center[0] + (k/2) - (k*y);
-        return {ycoord,xcoord};
-    }
-
     render() {
         return (
             <Map className="warMap"
@@ -36,6 +29,8 @@ class WarMap extends React.Component{
                 zoom={3}
                 minZoom={2}
                 maxZoom={5}
+                zoomSnap={1}
+                wheelPxPerZoomLevel={60}
 
                 maxBounds={[[-256,-50],[0,306]]}
                 maxBoundsViscosity={1.0}
@@ -51,7 +46,7 @@ class WarMap extends React.Component{
 					<BaseLayer name="Satellite Map">
 						<TileLayer url='https://raw.githubusercontent.com/Kastow/Foxhole-Map-Tiles/master/Sat%20Tiles/{z}/{z}_{x}_{y}.png' />
 					</BaseLayer>
-				</LayersControl>		
+				</LayersControl>
             </Map>
         );
     }

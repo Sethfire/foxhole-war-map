@@ -2,7 +2,7 @@ import React from 'react';
 
 import L from 'leaflet';
 import {Marker, LayerGroup} from 'react-leaflet';
-import {mapBounds, mapHeight, mapWidth, mapOrigin, o, w, k, mapArray} from '../mapData.js';
+import {o, w, k, mapArray} from '../mapData.js';
 
 import MapItem from './MapItem.js';
 import * as MapIcon from '../IconData.js';

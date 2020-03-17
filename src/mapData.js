@@ -3,11 +3,11 @@ const mapHeight = mapBounds[1][0]-mapBounds[0][0];
 const mapWidth = mapBounds[1][1]-mapBounds[0][1];
 const mapOrigin = {x:128,y:-128}
 
-const o = mapOrigin; // Shortened
-const w = mapWidth/5.5 // Standard Region Width
-const k = w*Math.sqrt(3)/2 // Standard Region Height
+export const o = mapOrigin; // Shortened
+export const w = mapWidth/5.5 // Standard Region Width
+export const k = w*Math.sqrt(3)/2 // Standard Region Height
 
-const mapArray=[
+export const mapArray=[
     //{id:0,name:'',center:[]},
     //{id:1,name:'',center:[]},
     //{id:2,name:'',center:[]},
@@ -36,4 +36,16 @@ const mapArray=[
     {id:25,name:'Viper Pit',center:[o.y+1.5*k,o.x+0.75*w]},
 ]
 
-export {mapBounds, mapHeight, mapWidth, mapOrigin, o, w, k, mapArray};
+export const regionBorders = mapArray.map(region => {
+    if (region.name != '') {
+        let item = region.center;
+        return ([
+            [item[0],item[1]-w/2],
+            [item[0]+k/2,item[1]-w/4],
+            [item[0]+k/2,item[1]+w/4],
+            [item[0],item[1]+w/2],
+            [item[0]-k/2,item[1]+w/4],
+            [item[0]-k/2,item[1]-w/4],
+        ]);
+    }
+})
