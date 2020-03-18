@@ -4,7 +4,7 @@ class WarStatus extends React.Component{
     render() {
         return (
             <div id='warStatus'>
-                <p>War Status</p>
+                <p><font color='#d67b52'>War Status</font></p>
 				<h1>ACTIVE</h1>
             </div>
         );

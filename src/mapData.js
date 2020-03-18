@@ -1,3 +1,5 @@
+import L from 'leaflet';
+
 const mapBounds = [[-228,0],[-28,256]]
 const mapHeight = mapBounds[1][0]-mapBounds[0][0];
 const mapWidth = mapBounds[1][1]-mapBounds[0][1];
@@ -47,5 +49,14 @@ export const regionBorders = mapArray.map(region => {
             [item[0]-k/2,item[1]+w/4],
             [item[0]-k/2,item[1]-w/4],
         ]);
+    }
+})
+
+export const regionLabels = mapArray.map(region => {
+    if (region.name != '') {
+        return ({
+            divIcon: L.divIcon({className: "regionLabel", html: region.name, iconSize: [150,30], iconAnchor: [75,15]}),
+            position: region.center
+        });
     }
 })

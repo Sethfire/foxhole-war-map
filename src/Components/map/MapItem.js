@@ -1,5 +1,5 @@
-import * as MapIcon from '../IconData.js';
-import * as MapData from '../mapData.js';
+import * as MapIcon from '../../IconData.js';
+import * as MapData from '../../mapData.js';
 
 class MapItem{
     constructor(regionId, teamId, iconType, x, y, flags) {
@@ -29,15 +29,15 @@ class MapItem{
 		
         switch(iconType) {
             case 5:
-                this.description = 'Town (Tier 1)';
+                this.description = 'Town Hall (Tier 1)';
                 this.iconImage = MapIcon.StaticBase1[this.teamId];
                 break;
             case 6:
-                this.description = 'Town (Tier 2)';
+                this.description = 'Town Hall (Tier 2)';
                 this.iconImage = MapIcon.StaticBase2[this.teamId];
                 break;
             case 7:
-                this.description = 'Town (Tier 3)';
+                this.description = 'Town Hall (Tier 3)';
                 this.iconImage = MapIcon.StaticBase3[this.teamId];
                 break;
 			case 11:
@@ -74,11 +74,11 @@ class MapItem{
 				break;
 			case 27:
 				this.description = 'Keep';
-				this.iconImage = MapIcon.Keep;
+				this.iconImage = MapIcon.Keep[this.teamId];
 				break;
 			case 28:
 				this.description = 'Observation Tower';
-				this.iconImage = MapIcon.ObservationTower;
+				this.iconImage = MapIcon.ObservationTower[this.teamId];
 				break;
 			case 29: //Unused
 				this.description = 'Fort';
@@ -88,7 +88,7 @@ class MapItem{
 				this.iconImage = MapIcon.SulfurMine;
 				break;
 			case 33:
-				this.description = 'Storage Facility';
+				this.description = 'Storage Depot';
 				this.iconImage = MapIcon.StorageFacility[this.teamId];
 				break;
 			case 34:
@@ -96,7 +96,7 @@ class MapItem{
 				this.iconImage = MapIcon.Factory[this.teamId];
 				break;
 			case 35:
-				this.description = 'Safehouse';
+				this.description = 'Safe House';
 				this.iconImage = MapIcon.Safehouse[this.teamId];
 				break;
 			case 36:

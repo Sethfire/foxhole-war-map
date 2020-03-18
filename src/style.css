@@ -1,19 +1,19 @@
-html, body, #root, #container {
+html, body, #root, #app {
 	height: 100%;
 	margin: 0;
 }
 
 body {
-    font-family: Helvetica;
+    font-family: 'Jost';
     
-	background-image: url('foxhole-background.jpg');
+    background-image: url('foxhole-background.jpg');
 	background-repeat: no-repeat;
 	background-position: center center;
     background-color: #000000;
 }
 
 /* Contains the entire application */
-#container {
+#app {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -24,6 +24,7 @@ body {
     margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;
+    opacity: 0.8;
 
     flex: 0 0 46px;
 }
@@ -51,18 +52,19 @@ body {
 }
 
 #sidebar {
-	flex: 0 0 240px;
+	flex: 0 0 220px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
 }
 
 #warStatus {
-	flex: 0 0 100px;
+	flex: 0 0;
 	
     margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;
+    opacity: 0.8;
 
     text-align: center;
     font-size: 18px;
@@ -75,7 +77,6 @@ body {
 
 #warStatus > h1 {
 	font-size: 48px;
-	color: green;
 	margin: 5px;
 }
 
@@ -85,31 +86,124 @@ body {
     margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;
+    opacity: 0.8;
 	
     text-align: center;
-    font-size: 18px;
     color: #ffffff;
 }
 
-#warStats > p{
-	margin: 5px;
+#warStats p {
+    margin: 5px;
+    font-size: 18px;
+}
+
+#warTable {
+    text-align: center;
+}
+
+.tableData {
+    font-size: 16px;
+    border: 1px solid #222222;
+    background-color: #444444;
+}
+
+#main2 {
+
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 #warMap {
-	flex: 1 1;
+    flex: 1 1;
+
     margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;
+    opacity: 0.8;
+    
+    font-family: 'Jost';
 }
 
+.regionLabel {
+    white-space: nowrap;
+    text-shadow: 0 0 0.1em black, 0 0 0.1em black,
+          0 0 0.1em black,0 0 0.1em black,0 0 0.1em;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
 #warTime {
-	flex: 0 0 60px;
-	
+    flex: 0 0;
+
     margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;
+    opacity: 0.8;
 	
     text-align: center;
-    font-size: 12px;
     color: #ffffff;
+}
+
+#warTimeHeader {
+    margin: 5px;
+    font-size: 12px;
+}
+
+#warTimeDay {
+    margin: 5px;
+    font-size: 16px;
+}
+
+#footer {
+    flex: 0 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#warLogs {
+    width: 50%;
+    margin: 5px;
+    border: 1px solid #363636;
+    background-color: #222222;
+    opacity: 0.8;
+    color: #ffffff;
+
+}
+
+#warLogs p {
+    margin: 5px;
+}
+
+#warLogs p > b {
+    color: #d67b52;
+}
+
+#attributions {
+    width: 50%;
+    margin: 5px;
+    border: 1px solid #363636;
+    background-color: #222222;
+    opacity: 0.8;
+    color: #ffffff;
+}
+
+#attributions p {
+    margin: 5px;
+    font-size: 12px;
+}
+
+a:link {
+    color: #d67b52;
+}
+a:visited {
+    color: #d67b52;
+}
+a:hover {
+    color: #d67b52;
+}
+a:active {
+    color: #d67b52;
 }
