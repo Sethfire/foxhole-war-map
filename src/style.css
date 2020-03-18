@@ -1,33 +1,31 @@
-* {
-    font-family: Helvetica;
+html, body, #root, #container {
+	height: 100%;
+	margin: 0;
 }
 
-html, body {
-    margin: 0px;
-    padding: 5px;
-    height: 100%;
+body {
+    font-family: Helvetica;
     
+	background-image: url('foxhole-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
     background-color: #000000;
 }
 
+/* Contains the entire application */
 #container {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
 }
 
+/* Banner */
 #header {
     margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;
 
-    flex-basis: 46px;
-}
-
-#body {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex: 0 0 46px;
 }
 
 #headerText {
@@ -35,9 +33,8 @@ html, body {
     display: inline;
     margin: 5px;
 	
-    font-size: 28px;
-    font-family: Helvetica;
-    color: #AEBDBD;
+    font-size: 24px;
+    color: #ffffff;
 }
 
 #headerImage {
@@ -45,40 +42,74 @@ html, body {
     vertical-align: middle;
 }
 
+/* The main body - Includes everything but header */
+#main {
+	flex: 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
 #sidebar {
+	flex: 0 0 240px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
 }
 
 #warStatus {
+	flex: 0 0 100px;
+	
     margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;
 
-    height: 120px;
-    width: 240px;
-    max-width: 100%;
-    float: left;
-
     text-align: center;
-    font-size: 24px;
+    font-size: 18px;
     color: #ffffff;
 }
 
-#warMap {
+#warStatus > p {
+	margin: 5px;
+}
+
+#warStatus > h1 {
+	font-size: 48px;
+	color: green;
+	margin: 5px;
+}
+
+#warStats {
+	flex: 1 1;
+	
     margin: 5px;
+    border: 1px solid #363636;
+    background-color: #222222;
+	
+    text-align: center;
+    font-size: 18px;
+    color: #ffffff;
+}
 
-    width: 600px;
-    height: 600px;
+#warStats > p{
+	margin: 5px;
+}
 
+#warMap {
+	flex: 1 1;
+    margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;
 }
 
 #warTime {
+	flex: 0 0 60px;
+	
     margin: 5px;
     border: 1px solid #363636;
     background-color: #222222;
+	
+    text-align: center;
+    font-size: 12px;
     color: #ffffff;
 }
