@@ -1,7 +1,7 @@
 import React from 'react';
 import {Polygon, Marker, LayerGroup} from 'react-leaflet';
 
-import * as mapData from '../../mapData.js';
+import * as mapData from './MapData.js';
 
 class MapRegions extends React.Component{
 

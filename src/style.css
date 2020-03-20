@@ -1,5 +1,6 @@
 html, body, #root, #app {
-	height: 100%;
+    height: 100%;
+    width: 100%;
 	margin: 0;
 }
 
@@ -12,24 +13,31 @@ body {
     background-color: #000000;
 }
 
-/* Contains the entire application */
+.war-box {
+    margin: 5px;
+    border: 1px solid #363636;
+    background-color: #222222;
+    opacity: 0.8;
+
+    color: #ffffff;
+}
+
+.war-box b {
+    color: #d67b52;
+}
+
+/* War Application Container */
 #app {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
 }
 
-/* Banner */
+/* War Header */
 #header {
-    margin: 5px;
-    border: 1px solid #363636;
-    background-color: #222222;
-    opacity: 0.8;
-
     flex: 0 0 46px;
 }
-
-#headerText {
+#header-text {
     vertical-align: middle;
     display: inline;
     margin: 5px;
@@ -37,15 +45,27 @@ body {
     font-size: 24px;
     color: #ffffff;
 }
-
-#headerImage {
+#header-image {
     margin: 5px;
     vertical-align: middle;
 }
 
-/* The main body - Includes everything but header */
 #main {
 	flex: 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#main2 {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#main3 {
+	flex: 1 1;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -58,75 +78,59 @@ body {
     flex-wrap: nowrap;
 }
 
-#warStatus {
+#war-status {
 	flex: 0 0;
-	
-    margin: 5px;
-    border: 1px solid #363636;
-    background-color: #222222;
-    opacity: 0.8;
 
     text-align: center;
     font-size: 18px;
     color: #ffffff;
 }
-
-#warStatus > p {
+#war-status b {
+    font-weight: normal;
+}
+#war-status p {
 	margin: 5px;
 }
 
-#warStatus > h1 {
-	font-size: 48px;
-	margin: 5px;
-}
-
-#warStats {
+#war-stats {
 	flex: 1 1;
 	
-    margin: 5px;
-    border: 1px solid #363636;
-    background-color: #222222;
-    opacity: 0.8;
-	
     text-align: center;
     color: #ffffff;
 }
-
-#warStats p {
+#war-stats p {
     margin: 5px;
     font-size: 18px;
 }
-
-#warTable {
+#war-table {
     text-align: center;
 }
-
-.tableData {
+.war-table-data {
     font-size: 16px;
     border: 1px solid #222222;
     background-color: #444444;
 }
 
-#main2 {
-
-    flex: 1 1;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+#war-time {
+    flex: 0 0;
+	
+    text-align: center;
+    color: #ffffff;
+}
+#war-time-header {
+    margin: 5px;
+    font-size: 12px;
+}
+#war-time-day {
+    margin: 5px;
+    font-size: 16px;
 }
 
-#warMap {
+#war-map {
     flex: 1 1;
-
-    margin: 5px;
-    border: 1px solid #363636;
-    background-color: #222222;
-    opacity: 0.8;
-    
     font-family: 'Jost';
 }
-
-.regionLabel {
+#war-map .region-label {
     white-space: nowrap;
     text-shadow: 0 0 0.1em black, 0 0 0.1em black,
           0 0 0.1em black,0 0 0.1em black,0 0 0.1em;
@@ -134,65 +138,61 @@ body {
     text-align: center;
     font-size: 16px;
 }
-#warTime {
-    flex: 0 0;
 
-    margin: 5px;
-    border: 1px solid #363636;
-    background-color: #222222;
-    opacity: 0.8;
-	
-    text-align: center;
+#map-legend {
+	flex: 0 0 200px;
+
+    text-align: left;
+    font-size: 14px;
     color: #ffffff;
-}
 
-#warTimeHeader {
-    margin: 5px;
-    font-size: 12px;
+    overflow: auto;
 }
-
-#warTimeDay {
+#map-legend p {
     margin: 5px;
-    font-size: 16px;
+}
+#map-legend h1 {
+    margin: 5px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #d67b52;
+    text-align: center;
+}
+#map-legend b {
+    font-weight: normal;
+    color: #d67b52;
+}
+#map-legend img {
+    margin: 3px;
+    vertical-align: middle;
 }
 
 #footer {
     flex: 0 0;
+    height: 100px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
 
-#warLogs {
+#war-logs {
     width: 50%;
-    margin: 5px;
-    border: 1px solid #363636;
-    background-color: #222222;
-    opacity: 0.8;
+    overflow: auto;
+
     color: #ffffff;
-
 }
-
-#warLogs p {
+#war-logs p {
     margin: 5px;
-}
-
-#warLogs p > b {
-    color: #d67b52;
+    font-size: 12px;
 }
 
 #attributions {
-    width: 50%;
-    margin: 5px;
-    border: 1px solid #363636;
-    background-color: #222222;
-    opacity: 0.8;
-    color: #ffffff;
+    flex: 1 1;
+    overflow: auto;
 }
-
 #attributions p {
     margin: 5px;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 a:link {

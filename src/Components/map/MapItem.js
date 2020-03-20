@@ -1,7 +1,11 @@
-import * as MapIcon from '../../IconData.js';
-import * as MapData from '../../mapData.js';
+import * as MapIcon from './IconData.js';
+import * as MapData from './MapData.js';
 
-class MapItem{
+function detectType(iconType) {
+	return 0;
+}
+
+export default class MapItem{
     constructor(regionId, teamId, iconType, x, y, flags) {
 		this.regionId = regionId;
 		this.regionName = MapData.mapArray[regionId-3].name;
@@ -132,5 +136,3 @@ class MapItem{
         }
     }
 }
-
-export default MapItem;

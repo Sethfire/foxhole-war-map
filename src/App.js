@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from './components/Header.js';
 import WarMap from './components/map/WarMap.js';
+import MapLegend from './components/MapLegend.js';
 import WarStatus from './components/WarStatus.js';
 import WarStats from './components/WarStats.js';
 import WarTime from './components/WarTime.js';
@@ -13,9 +14,7 @@ class App extends React.Component {
     render() {
         return (
         <div id='app'>
-            <div id = 'header'>
-                <Header />
-            </div>
+            <Header />
 
             <div id='main'>
                 <div id='sidebar'>
@@ -24,7 +23,10 @@ class App extends React.Component {
 					<WarTime />
                 </div>
                 <div id='main2'>
-                    <WarMap />
+                    <div id='main3'>
+                        <WarMap />
+					    <MapLegend />
+                    </div>
                     <div id='footer'>
                         <WarLogs />
                         <Attributions />

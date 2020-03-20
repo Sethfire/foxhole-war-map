@@ -1,10 +1,10 @@
 import React from 'react';
 import L from 'leaflet';
 import {Marker, LayerGroup, Tooltip} from 'react-leaflet';
-import {o, w, k, mapArray} from '../../mapData.js';
+import {o, w, k, mapArray} from './MapData.js';
 
 import MapItem from './MapItem.js';
-import * as MapIcon from '../../IconData.js';
+import * as MapIcon from './IconData.js';
 
 
 function convertCoords(regionId,x,y) {

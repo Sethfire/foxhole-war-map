@@ -1,11 +1,11 @@
 import React from "react";
 
-class WarStatus extends React.Component{
+class WarStats extends React.Component{
     render() {
         return (
-            <div id='warStats'>
+            <div className='war-box' id='war-stats'>
                 <p><font color='#d67b52'>State of the War</font></p>
-                <table style={{width:'100%'}} id='warTable'>
+                <table style={{width:'100%'}} id='war-table'>
                     <tbody>
                         <tr>
                             <th></th>
@@ -14,28 +14,28 @@ class WarStatus extends React.Component{
                         </tr>
                         <tr>
                             <th><img src='/icons/MapIconStaticBase1.png' width='32px' height='32px' /></th>
-                            <th className='tableData'>0</th>
-                            <th className='tableData'>0</th>
+                            <th className='war-table-data'>0</th>
+                            <th className='war-table-data'>0</th>
                         </tr>
                         <tr>
                             <th><img src='/icons/MapIconStaticBase2.png' width='32px' height='32px' /></th>
-                            <th className='tableData'>0</th>
-                            <th className='tableData'>0</th>
+                            <th className='war-table-data'>0</th>
+                            <th className='war-table-data'>0</th>
                         </tr>
                         <tr>
                             <th><img src='/icons/MapIconStaticBase3.png' width='32px' height='32px' /></th>
-                            <th className='tableData'>0</th>
-                            <th className='tableData'>0</th>
+                            <th className='war-table-data'>0</th>
+                            <th className='war-table-data'>0</th>
                         </tr>
                         <tr>
                             <th><img src='/icons/MapIconCivicCenter.png' width='32px' height='32px' /></th>
-                            <th className='tableData'>0/<font color='#d67b52'>17</font></th>
-                            <th className='tableData'>0/<font color='#d67b52'>17</font></th>
+                            <th className='war-table-data'>0/<font color='#d67b52'>17</font></th>
+                            <th className='war-table-data'>0/<font color='#d67b52'>17</font></th>
                         </tr>
                         <tr>
                             <th><img src='/icons/MapIconRelicBase.png' width='32px' height='32px' /></th>
-                            <th className='tableData'>0</th>
-                            <th className='tableData'>0</th>
+                            <th className='war-table-data'>0</th>
+                            <th className='war-table-data'>0</th>
                         </tr>
                     </tbody>
                 </table>
@@ -44,4 +44,4 @@ class WarStatus extends React.Component{
     }
 }
 
-export default WarStatus;
+export default WarStats;

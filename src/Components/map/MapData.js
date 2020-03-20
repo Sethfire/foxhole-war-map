@@ -55,7 +55,7 @@ export const regionBorders = mapArray.map(region => {
 export const regionLabels = mapArray.map(region => {
     if (region.name != '') {
         return ({
-            divIcon: L.divIcon({className: "regionLabel", html: region.name, iconSize: [150,30], iconAnchor: [75,15]}),
+            divIcon: L.divIcon({className: "region-label", html: region.name, iconSize: [150,30], iconAnchor: [75,15]}),
             position: region.center
         });
     }
