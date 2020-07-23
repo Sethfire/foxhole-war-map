@@ -15,7 +15,6 @@ class App extends React.Component {
         return (
         <div id='app'>
             <Header />
-
             <div id='main'>
                 <div id='sidebar'>
                     <WarStatus />

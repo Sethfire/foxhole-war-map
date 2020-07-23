@@ -7,7 +7,7 @@ html, body, #root, #app {
 body {
     font-family: 'Jost';
     
-    background-image: url('foxhole-background.jpg');
+    background-image: url('FoxholeBackground.jpg');
 	background-repeat: no-repeat;
 	background-position: center center;
     background-color: #000000;

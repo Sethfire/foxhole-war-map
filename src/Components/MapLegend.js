@@ -1,6 +1,6 @@
 import React from "react";
 
-class mapLegend extends React.Component{
+class MapLegend extends React.Component{
     render() {
         return (
             <div className='war-box' id='map-legend'>
@@ -77,4 +77,4 @@ class mapLegend extends React.Component{
     }
 }
 
-export default mapLegend;
+export default MapLegend;
