@@ -10,6 +10,9 @@ The Foxhole War Map, also known as the Foxhole Interactive Map, is a community p
 
 Foxhole is a cooperative sandbox massively-multiplayer action-strategy video game being developed and published by Canadian video game company Clapfoot. The data is taken from the official Foxhole WarAPI, which can be found at https://github.com/clapfoot/warapi.
 
+### Instructions
+Download the repository and run `npm install` in the root directory to install node dependencies, and then `npm start` to run the app.
+
 ### Developers
 The Foxhole War Map project was coded primarily by two developers:
 - Sethfire
