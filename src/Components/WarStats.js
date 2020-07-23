@@ -29,8 +29,8 @@ class WarStats extends React.Component{
                         </tr>
                         <tr>
                             <th><img src='/icons/MapIconCivicCenter.png' width='32px' height='32px' /></th>
-                            <th className='war-table-data'>0/<font color='#d67b52'>17</font></th>
-                            <th className='war-table-data'>0/<font color='#d67b52'>17</font></th>
+                            <th className='war-table-data'>0/<font color='#d67b52'>0</font></th>
+                            <th className='war-table-data'>0/<font color='#d67b52'>0</font></th>
                         </tr>
                         <tr>
                             <th><img src='/icons/MapIconRelicBase.png' width='32px' height='32px' /></th>

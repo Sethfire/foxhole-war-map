@@ -3,7 +3,7 @@ Foxhole War Map
 
 http://foxholeglobal.com/map
 
-![Foxhole War Map](https://i.imgur.com/ATxJUhE.png)
+![Foxhole War Map](https://i.imgur.com/fBb3WCi.png)
 
 ### Overview
 The Foxhole War Map, also known as the Foxhole Interactive Map, is a community project developed for the game [Foxhole](https://store.steampowered.com/app/505460/Foxhole/). The War Map displays information about the state of the war. This project is developed using the [LeafletJS library](https://leafletjs.com/).
