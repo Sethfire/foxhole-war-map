@@ -35,17 +35,17 @@ class WarMap extends React.Component{
                 maxBoundsViscosity={1.0}
             >
                 <MapRegions />
-				<MapItems />
-				
-				<LayersControl position="topright">
-					<BaseLayer checked name="Original Map">
-						<TileLayer url='https://raw.githubusercontent.com/Kastow/Foxhole-Map-Tiles/master/Tiles/{z}/{z}_{x}_{y}.png' />
-					</BaseLayer>
-					
-					<BaseLayer name="Satellite Map">
-						<TileLayer url='https://raw.githubusercontent.com/Kastow/Foxhole-Map-Tiles/master/Sat%20Tiles/{z}/{z}_{x}_{y}.png' />
-					</BaseLayer>
-				</LayersControl>
+                <MapItems />
+                
+                <LayersControl position="topright">
+                    <BaseLayer checked name="Original Map">
+                        <TileLayer url='https://raw.githubusercontent.com/Kastow/Foxhole-Map-Tiles/master/Tiles/{z}/{z}_{x}_{y}.png' />
+                    </BaseLayer>
+                    
+                    <BaseLayer name="Satellite Map">
+                        <TileLayer url='https://raw.githubusercontent.com/Kastow/Foxhole-Map-Tiles/master/Sat%20Tiles/{z}/{z}_{x}_{y}.png' />
+                    </BaseLayer>
+                </LayersControl>
             </Map>
         );
     }

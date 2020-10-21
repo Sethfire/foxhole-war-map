@@ -6,11 +6,10 @@ import {o, w, k, mapArray} from './MapData.js';
 import MapItem from './MapItem.js';
 import * as MapIcon from './IconData.js';
 
-
 function convertCoords(regionId,x,y) {
-	var xcoord = mapArray[regionId-3].center[1] - (w/2) + (w*x);
-	var ycoord = mapArray[regionId-3].center[0] + (k/2) - (k*y);
-	return {xcoord,ycoord};
+    var xcoord = mapArray[regionId-3].center[1] - (w/2) + (w*x);
+    var ycoord = mapArray[regionId-3].center[0] + (k/2) - (k*y);
+    return {xcoord,ycoord};
 }
 
 class MapItems extends React.Component{
@@ -18,13 +17,35 @@ class MapItems extends React.Component{
     constructor() {
         super();
         this.state = {
-            mapLoaded: false,
-			mapMarkers: []
+            staticLoaded: false,
+            dynamicLoaded: false,
+            mapMarkers: [],
+            mapTextItems: []
         }
     }
 
     componentDidMount() {
-        fetch(process.env.PUBLIC_URL + 'testdata.json')
+
+        /*
+        fetch(process.env.PUBLIC_URL + 'test-data-static.json')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(region => {
+                if(region == null) { return; }
+                region.mapTextItems.map(mapTextItem => {
+                    this.setState(prevState => {
+                        const MapTextItems = prevState.MapTextItems.concat({});
+                        return { MapTextItems };
+                    });
+                });
+            });
+            this.setState({
+                staticLoaded: true
+            });
+        });
+        */
+
+        fetch(process.env.PUBLIC_URL + 'test-data-dynamic.json')
         .then(response => response.json())
         .then(data => {
             data.forEach(region => {
@@ -41,17 +62,18 @@ class MapItems extends React.Component{
                 });
             });
             this.setState({
-                mapLoaded: true
+                dynamicLoaded: true
             });
         });
     }
 
     render() {
-        if (this.state.mapLoaded) {
+        if (this.state.dynamicLoaded) {
+
             const mapMarkers = this.state.mapMarkers.map(mapItem => {
                 return(
                     <Marker icon={mapItem.iconImage} position={[mapItem.y,mapItem.x]}>
-                        <Tooltip sticky><strong><font color='#d67b52'>Placeholder Name</font></strong><br />{mapItem.teamPrefix}{mapItem.description}<br />{mapItem.regionName} </Tooltip> 
+                        <Tooltip sticky><strong><font color='#d67b52'>{mapItem.teamPrefix}{mapItem.description}</font></strong><br />{mapItem.regionName} </Tooltip> 
                     </Marker> 
                 );
             });

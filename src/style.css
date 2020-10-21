@@ -14,12 +14,8 @@ body {
 }
 
 .war-box {
-    margin: 5px;
-    border: 1px solid #363636;
     background-color: #222222;
-    opacity: 0.8;
-
-    color: #ffffff;
+    /* opacity: 0.8; */
 }
 
 .war-box b {
@@ -29,101 +25,6 @@ body {
 /* War Application Container */
 #app {
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-}
-
-/* War Header */
-#header {
-    flex: 0 0 46px;
-}
-#header-text {
-    vertical-align: middle;
-    display: inline;
-    margin: 5px;
-	
-    font-size: 24px;
-    color: #ffffff;
-}
-#header-image {
-    margin: 5px;
-    vertical-align: middle;
-}
-
-#main {
-	flex: 2;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-#main2 {
-    flex: 1 1;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-}
-
-#main3 {
-	flex: 1 1;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-#sidebar {
-	flex: 0 0 220px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-}
-
-#war-status {
-	flex: 0 0;
-
-    text-align: center;
-    font-size: 18px;
-    color: #ffffff;
-}
-#war-status b {
-    font-weight: normal;
-}
-#war-status p {
-	margin: 5px;
-}
-
-#war-stats {
-	flex: 1 1;
-	
-    text-align: center;
-    color: #ffffff;
-}
-#war-stats p {
-    margin: 5px;
-    font-size: 18px;
-}
-#war-table {
-    text-align: center;
-}
-.war-table-data {
-    font-size: 16px;
-    border: 1px solid #222222;
-    background-color: #444444;
-}
-
-#war-time {
-    flex: 0 0;
-	
-    text-align: center;
-    color: #ffffff;
-}
-#war-time-header {
-    margin: 5px;
-    font-size: 12px;
-}
-#war-time-day {
-    margin: 5px;
-    font-size: 16px;
 }
 
 #war-map {
@@ -137,62 +38,6 @@ body {
     color: white;
     text-align: center;
     font-size: 16px;
-}
-
-#map-legend {
-	flex: 0 0 200px;
-
-    text-align: left;
-    font-size: 14px;
-    color: #ffffff;
-
-    overflow: auto;
-}
-#map-legend p {
-    margin: 5px;
-}
-#map-legend h1 {
-    margin: 5px;
-    font-size: 18px;
-    font-weight: normal;
-    color: #d67b52;
-    text-align: center;
-}
-#map-legend b {
-    font-weight: normal;
-    color: #d67b52;
-}
-#map-legend img {
-    margin: 3px;
-    vertical-align: middle;
-}
-
-#footer {
-    flex: 0 0;
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-#war-logs {
-    width: 50%;
-    overflow: auto;
-
-    color: #ffffff;
-}
-#war-logs p {
-    margin: 5px;
-    font-size: 12px;
-}
-
-#attributions {
-    flex: 1 1;
-    overflow: auto;
-}
-#attributions p {
-    margin: 5px;
-    font-size: 10px;
 }
 
 a:link {
