@@ -1,6 +1,6 @@
 import React from 'react';
 
-import WarMap from './components/map/WarMap.js';
+import WarMap from './Components/Map/WarMap.js';
 
 class App extends React.Component {
 

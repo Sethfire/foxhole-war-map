@@ -58,6 +58,12 @@ export const RocketSite = [
     //new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconRocketSiteWarden.png'}),
 ]
 
+export const CoastalGun = [
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconCoastalGun.png'}),
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconCoastalGunColonial.png'}),
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconCoastalGunWarden.png'})
+]
+
 /* Logistics */
 
 export const Armory = [
@@ -86,20 +92,20 @@ export const StorageFacility = [
 
 export const VehicleFactory = [
     new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconVehicle.png'}),
-    //new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconVehicleColonial.png'}),
-    //new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconVehicleWarden.png'})
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconVehicleColonial.png'}),
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconVehicleWarden.png'})
 ]
 
 export const ConstructionYard = [
     new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconConstructionYard.png'}),
-    //new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconConstructionYardColonial.png'}),
-    //new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconConstructionYardWarden.png'})
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconConstructionYardColonial.png'}),
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconConstructionYardWarden.png'})
 ]
 
 export const Shipyard = [
     new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconShipyard.png'}),
-    //new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconConstructionYardColonial.png'}),
-    //new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconConstructionYardWarden.png'})
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconShipyardColonial.png'}),
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconShipyardWarden.png'})
 ]
 
 export const Hospital = [
@@ -109,19 +115,21 @@ export const Hospital = [
 ]
 
 export const TechCenter = [
-    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconTechCenter.png'})
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconTechCenter.png'}),
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconTechCenterColonial.png'}),
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconTechCenterWarden.png'})
 ]
 
 export const MassProductionFactory = [
-    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconMassProductionFactory.png'})
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconMassProductionFactory.png'}),
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconMassProductionFactoryColonial.png'}),
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconMassProductionFactoryWarden.png'})
 ]
 
 export const Seaport = [
-    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconSeaport.png'})
-]
-
-export const CoastalGun = [
-    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconCoastalGun.png'})
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconSeaport.png'}),
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconSeaportColonial.png'}),
+    new MapIcon({iconUrl: process.env.PUBLIC_URL + '/icons/MapIconSeaportWarden.png'})
 ]
 
 /* Resources */

@@ -39,7 +39,7 @@ export const mapArray=[
 ]
 
 export const regionBorders = mapArray.map(region => {
-    if (region.name != '') {
+    if (region.name !== '') {
         let item = region.center;
         return ([
             [item[0],item[1]-w/2],
@@ -50,13 +50,19 @@ export const regionBorders = mapArray.map(region => {
             [item[0]-k/2,item[1]-w/4],
         ]);
     }
+    else {
+        return null;
+    }
 })
 
 export const regionLabels = mapArray.map(region => {
-    if (region.name != '') {
+    if (region.name !== '') {
         return ({
             divIcon: L.divIcon({className: "region-label", html: region.name, iconSize: [150,30], iconAnchor: [75,15]}),
             position: region.center
         });
+    }
+    else {
+        return null;
     }
 })

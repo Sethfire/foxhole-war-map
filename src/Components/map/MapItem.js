@@ -1,10 +1,6 @@
 import * as MapIcon from './IconData.js';
 import * as MapData from './MapData.js';
 
-function detectType(iconType) {
-    return 0;
-}
-
 export default class MapItem{
     constructor(regionId, teamId, iconType, x, y, flags) {
         this.regionId = regionId;
@@ -50,7 +46,7 @@ export default class MapItem{
                 break;
             case 12:
                 this.description = 'Vehicle Factory';
-                this.iconImage = MapIcon.VehicleFactory[0];
+                this.iconImage = MapIcon.VehicleFactory[this.teamId];
                 break;
             case 17:
                 this.description = 'Refinery';
@@ -62,7 +58,7 @@ export default class MapItem{
                 break;
             case 19:
                 this.description = 'Engineering Center';
-                this.iconImage = MapIcon.TechCenter[0];
+                this.iconImage = MapIcon.TechCenter[this.teamId];
                 break;
             case 20:
                 this.description = 'Salvage Field';
@@ -91,6 +87,7 @@ export default class MapItem{
             case 29: //Unused
                 this.description = 'Fort';
                 //this.iconImage = MapIcon.Fort;
+                break;
             case 32:
                 this.description = 'Sulfur Mine';
                 this.iconImage = MapIcon.SulfurMine;
@@ -117,7 +114,7 @@ export default class MapItem{
                 break;
             case 39:
                 this.description = 'Construction Yard';
-                this.iconImage = MapIcon.ConstructionYard[0];
+                this.iconImage = MapIcon.ConstructionYard[this.teamId];
                 break;
             case 38:
                 this.description = 'Salvage Mine';
@@ -137,15 +134,15 @@ export default class MapItem{
                 break;
             case 51:
                 this.description = 'Mass Production Factory';
-                this.iconImage = MapIcon.MassProductionFactory[0];
+                this.iconImage = MapIcon.MassProductionFactory[this.teamId];
                 break;
             case 52:
                 this.description = 'Seaport';
-                this.iconImage = MapIcon.Seaport[0];
+                this.iconImage = MapIcon.Seaport[this.teamId];
                 break;
             case 53:
                 this.description = 'Coastal Gun';
-                this.iconImage = MapIcon.CoastalGun[0];
+                this.iconImage = MapIcon.CoastalGun[this.teamId];
             break;
             default:
                 console.log('ERROR: Unknown IconType - '+iconType);

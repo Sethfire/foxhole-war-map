@@ -1,6 +1,7 @@
 {
   "name": "foxhole-war-map",
-  "version": "3.0.0",
+  "version": "3.0.1",
+  "homepage": "/map",
   "private": true,
   "dependencies": {
     "leaflet": "^1.7.1",
