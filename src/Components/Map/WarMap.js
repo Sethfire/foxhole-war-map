@@ -18,6 +18,7 @@ class WarMap extends React.Component{
     }
 
     render() {
+        console.log("DEBUG - Drawing War Map..")
         return (
             <Map className='war-box' id="war-map"
                 zoomControl={true}

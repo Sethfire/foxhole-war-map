@@ -6,6 +6,7 @@ import * as mapData from './MapData.js';
 class MapRegions extends React.Component{
 
     render() {
+        console.log("DEBUG - Drawing Map Regions..");
         const regionBorders = mapData.regionBorders.map(regionBorder => 
             <Polygon color='black' opacity={0.1} fillOpacity={0} positions={regionBorder}/>
         );

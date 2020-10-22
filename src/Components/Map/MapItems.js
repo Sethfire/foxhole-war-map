@@ -54,9 +54,10 @@ class MapItems extends React.Component{
 
     componentDidMount() {
 
-        fetch(process.env.PUBLIC_URL + '/test-data-static.json')
+        fetch('/map/getStatic')
         .then(response => response.json())
         .then(data => {
+            console.log("DEBUG - Loading Static Map Data..");
             data.forEach(region => {
                 if(region === null) { return; }
                 region.mapTextItems.map(mapTextItem => {
@@ -73,9 +74,10 @@ class MapItems extends React.Component{
             });
         });
 
-        fetch(process.env.PUBLIC_URL + '/test-data-dynamic.json')
+        fetch('/map/getDynamic')
         .then(response => response.json())
         .then(data => {
+            console.log("DEBUG - Loading Dynamic Map Data..");
             data.forEach(region => {
                 if(region === null) { return; }
                 region.mapItems.map(mapItem => {
@@ -97,6 +99,7 @@ class MapItems extends React.Component{
 
     render() {
         if (this.state.staticLoaded && this.state.dynamicLoaded) {
+            console.log("DEBUG - Drawing Map Markers..");
             const mapMarkers = this.state.mapItems.map(mapItem => {
                 return(
                     <Marker icon={mapItem.iconImage} position={[mapItem.y,mapItem.x]}>
