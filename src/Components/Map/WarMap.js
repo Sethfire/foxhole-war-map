@@ -53,13 +53,13 @@ class WarMap extends React.Component{
                 <Pane name='regionLabelsPane' style={{ zIndex: 620 }} />
                 <Pane name='regionBordersPane' style={{ zIndex: 400 }} />
 
-                <Pane name='backgroundPane' style={{ zIndex: 1 }} />
+                <Pane name='backgroundPane' style={{ zIndex: 100 }} />
 
                 <MapRegions />
                 <MapItems />
 
                 <ImageOverlay
-                    url={process.env.PUBLIC_URL + '/WorldMapBG.png'}
+                    url={process.env.PUBLIC_URL + '/WorldMapBG.jpg'}
                     bounds={[
                         [-349.538, -265.846],
                         [93.538, 521.846]
@@ -68,7 +68,7 @@ class WarMap extends React.Component{
                 />
 
                 <TileLayer 
-                    url={process.env.PUBLIC_URL + '/tiles/{z}/{z}_{x}_{y}.png'} 
+                    url='https://raw.githubusercontent.com/Kastow/Foxhole-Map-Tiles/master/Tiles/{z}/{z}_{x}_{y}.png'
                     zIndex={200}
                 />
 

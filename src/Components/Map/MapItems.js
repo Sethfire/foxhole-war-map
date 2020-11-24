@@ -19,12 +19,15 @@ class MapItems extends React.Component{
         }
     }
 
+    // Utility Functions
+    // Converts a coordinate from the regional coordinate system to the world coordinate system
     convertCoords(regionId, x, y) {
         let xcoord = mapArray[regionId-3].center[1] - (w/2) + (w*x);
         let ycoord = mapArray[regionId-3].center[0] + (k/2) - (k*y);
         return {xcoord,ycoord};
     }
 
+    // Compares the distance between two values.
     compare(a, b) {
         if (a.distance < b.distance) {
             return -1;
@@ -35,6 +38,7 @@ class MapItems extends React.Component{
         return 0;
     }
 
+    // Finds the closest name for a given map item. 
     findClosest(mapItem) {
         let closestNames = [];
     
@@ -63,7 +67,7 @@ class MapItems extends React.Component{
                 if(region === null) { return; }
                 region.mapTextItems.map(mapTextItem => {
                     let coords = this.convertCoords(region.regionId, mapTextItem.x, mapTextItem.y);
-                    let mapTextItemObject = new MapTextItem(region.regionId,mapTextItem.text,coords.xcoord,coords.ycoord);
+                    let mapTextItemObject = new MapTextItem(region.regionId, mapTextItem.text, coords.xcoord, coords.ycoord);
                     this.setState(prevState => {
                         const mapTextItems = prevState.mapTextItems.concat(mapTextItemObject);
                         return { mapTextItems };
@@ -74,7 +78,7 @@ class MapItems extends React.Component{
                 staticLoaded: true
             });
         }).catch(error => {
-            console.log("Error - Could not load Static Map Data.");
+            console.log('Error - Could not load Static Map Data.\n' + error);
         });
 
         //fetch(process.env.PUBLIC_URL + '/test-data-dynamic.json')
@@ -86,7 +90,7 @@ class MapItems extends React.Component{
                 if(region === null) { return; }
                 region.mapItems.map(mapItem => {
                     let coords = this.convertCoords(region.regionId, mapItem.x, mapItem.y);
-                    let mapItemObject = new MapItem(region.regionId,mapItem.teamId,mapItem.iconType,coords.xcoord,coords.ycoord,mapItem.flags);
+                    let mapItemObject = new MapItem(region.regionId, mapItem.teamId, mapItem.iconType, coords.xcoord, coords.ycoord, mapItem.flags);
                     if (mapItemObject.iconImage != null) {
                         this.setState(prevState => {
                             const mapItems = prevState.mapItems.concat(mapItemObject);
@@ -99,7 +103,7 @@ class MapItems extends React.Component{
                 dynamicLoaded: true
             });
         }).catch(error => {
-            console.log("Error - Could not load Dynamic Map Data.");
+            console.log('Error - Could not load Dynamic Map Data.\n' + error);
         });
     }
 
