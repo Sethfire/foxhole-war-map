@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import L from 'leaflet';
-import {Map, TileLayer, LayerGroup, LayersControl} from 'react-leaflet';
+import {Map, TileLayer, ImageOverlay, LayersControl, Pane} from 'react-leaflet';
 
 import MapRegions from './MapRegions.js';
 import MapItems from './MapItems.js';
@@ -18,10 +18,11 @@ class WarMap extends React.Component{
     }
 
     render() {
-        console.log("DEBUG - Drawing War Map..")
+        console.log('Drawing War Map..')
         return (
-            <Map className='war-box' id="war-map"
+            <Map className='war-box' id='war-map'
                 zoomControl={true}
+                doubleClickZoom={false}
                 attributionControl={true}
         
                 crs={L.CRS.Simple}
@@ -33,20 +34,55 @@ class WarMap extends React.Component{
                 wheelPxPerZoomLevel={60}
 
                 maxBounds={[[-256,-50],[0,306]]}
-                maxBoundsViscosity={1.0}
-            >
+                maxBoundsViscosity={1.0}>
+
+                {/* DEFAULT LEAFLET PANES ZINDEX
+                mapPane	'auto' Contains all other map panes
+                tilePane	200 GridLayers and TileLayers
+                overlayPane	400	Vectors (Paths, like Polylines and Polygons), ImageOverlays and VideoOverlays
+                shadowPane	500	Overlay shadows (e.g. Marker shadows)
+                markerPane	600	Icons of Markers
+                tooltipPane	650	Tooltips.
+                popupPane	700	Popups.
+                */}
+
+                <Pane name='basesPane' style={{ zIndex: 610 }} />
+                <Pane name='structuresPane' style={{ zIndex: 609 }} />
+                <Pane name='resourcesPane' style={{ zIndex: 608 }} />
+
+                <Pane name='regionLabelsPane' style={{ zIndex: 620 }} />
+                <Pane name='regionBordersPane' style={{ zIndex: 400 }} />
+
+                <Pane name='backgroundPane' style={{ zIndex: 1 }} />
+
                 <MapRegions />
                 <MapItems />
-                
-                <LayersControl position="topright">
-                    <BaseLayer checked name="Original Map">
-                        <TileLayer url='https://raw.githubusercontent.com/Kastow/Foxhole-Map-Tiles/master/Tiles/{z}/{z}_{x}_{y}.png' />
+
+                <ImageOverlay
+                    url={process.env.PUBLIC_URL + '/WorldMapBG.png'}
+                    bounds={[
+                        [-349.538, -265.846],
+                        [93.538, 521.846]
+                    ]}
+                    pane='backgroundPane'
+                />
+
+                <TileLayer 
+                    url={process.env.PUBLIC_URL + '/tiles/{z}/{z}_{x}_{y}.png'} 
+                    zIndex={200}
+                />
+
+                {/*
+                <LayersControl position='topright'>
+                    <BaseLayer name='Original Map'>
+                        <TileLayer url={process.env.PUBLIC_URL + '/tiles/{z}/{z}_{x}_{y}.png'} opacity={0.5} zIndex={10} />
                     </BaseLayer>
                     
-                    <BaseLayer name="Satellite Map">
-                        <TileLayer url='https://raw.githubusercontent.com/Kastow/Foxhole-Map-Tiles/master/Sat%20Tiles/{z}/{z}_{x}_{y}.png' />
+                    <BaseLayer name='Satellite Map'>
+                        <TileLayer url={process.env.PUBLIC_URL + '/sat tiles/{z}/{z}_{x}_{y}.png'} opacity={0.5} zIndex={10} />
                     </BaseLayer>
                 </LayersControl>
+                */}
             </Map>
         );
     }

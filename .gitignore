@@ -1,2 +1,4 @@
 node_modules/
 build/
+public/tiles/
+public/sat tiles/

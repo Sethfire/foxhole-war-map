@@ -1,6 +1,6 @@
 import React from 'react';
 import L from 'leaflet';
-import {Marker, LayerGroup, Tooltip} from 'react-leaflet';
+import {Marker, LayerGroup, Tooltip, Pane} from 'react-leaflet';
 import {o, w, k, mapArray} from './MapData.js';
 
 import MapItem from './MapItem.js';
@@ -54,10 +54,11 @@ class MapItems extends React.Component{
 
     componentDidMount() {
 
+        //fetch(process.env.PUBLIC_URL + '/test-data-static.json')
         fetch('/map/getStatic')
         .then(response => response.json())
         .then(data => {
-            console.log("DEBUG - Loading Static Map Data..");
+            console.log('Loading Static Map Data..');
             data.forEach(region => {
                 if(region === null) { return; }
                 region.mapTextItems.map(mapTextItem => {
@@ -72,12 +73,15 @@ class MapItems extends React.Component{
             this.setState({
                 staticLoaded: true
             });
+        }).catch(error => {
+            console.log("Error - Could not load Static Map Data.");
         });
 
+        //fetch(process.env.PUBLIC_URL + '/test-data-dynamic.json')
         fetch('/map/getDynamic')
         .then(response => response.json())
         .then(data => {
-            console.log("DEBUG - Loading Dynamic Map Data..");
+            console.log('Loading Dynamic Map Data..');
             data.forEach(region => {
                 if(region === null) { return; }
                 region.mapItems.map(mapItem => {
@@ -94,15 +98,17 @@ class MapItems extends React.Component{
             this.setState({
                 dynamicLoaded: true
             });
+        }).catch(error => {
+            console.log("Error - Could not load Dynamic Map Data.");
         });
     }
 
     render() {
         if (this.state.staticLoaded && this.state.dynamicLoaded) {
-            console.log("DEBUG - Drawing Map Markers..");
+            console.log('Drawing Map Markers..');
             const mapMarkers = this.state.mapItems.map(mapItem => {
                 return(
-                    <Marker icon={mapItem.iconImage} position={[mapItem.y,mapItem.x]}>
+                    <Marker icon={mapItem.iconImage} position={[mapItem.y,mapItem.x]} pane={mapItem.pane}>
                         <Tooltip sticky><strong><font color='#d67b52'>{this.findClosest(mapItem)}</font></strong><br />{mapItem.teamPrefix}{mapItem.description}<br />{mapItem.regionName}</Tooltip> 
                     </Marker> 
                 );
