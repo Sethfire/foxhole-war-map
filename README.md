@@ -13,17 +13,14 @@ Foxhole is a cooperative sandbox massively-multiplayer action-strategy video gam
 ### Instructions
 Download the repository and run `npm install` in the root directory to install node dependencies, and then `npm start` to run the app.
 
-### Developers
-The Foxhole War Map project was coded primarily by two developers:
-- Sethfire
+### Special Thanks
+The Foxhole War Map Project would not be a reality without the help of various people:
 - Kastow
-
-With assistance from collaborators who helped by providing assets and other contributions:
 - BladeRikWir
 - TauZeph
 - Mulon
 
-Special thanks must also be made to the Foxhole game developers for their invaluable help and assistance, especially:
+As well as the Foxhole game developers for their invaluable help and assistance:
 - KrazyFlyinChicken
 - Casey
 - Nooba
