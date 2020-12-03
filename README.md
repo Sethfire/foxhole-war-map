@@ -26,5 +26,4 @@ As well as the Foxhole game developers for their invaluable help and assistance:
 - Nooba
 
 ### Contact
-If you are interested in contributing to the project, contact us on discord.
-https://discord.gg/DJuAkTk
+Discord server - https://discord.gg/DJuAkTk
