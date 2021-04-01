@@ -12,6 +12,7 @@ class MapItems extends React.Component{
     constructor() {
         super();
         this.state = {
+            namesLoaded: false,
             staticLoaded: false,
             dynamicLoaded: false,
             mapItems: [],
@@ -58,8 +59,8 @@ class MapItems extends React.Component{
 
     componentDidMount() {
 
-        //fetch(process.env.PUBLIC_URL + '/test-data-static.json')
-        fetch('/map/getStatic')
+        fetch(process.env.PUBLIC_URL + '/test-data-static.json')
+        //fetch('/map/getStatic')
         .then(response => response.json())
         .then(data => {
             console.log('Loading Static Map Data..');
@@ -81,8 +82,8 @@ class MapItems extends React.Component{
             console.log('Error - Could not load Static Map Data.\n' + error);
         });
 
-        //fetch(process.env.PUBLIC_URL + '/test-data-dynamic.json')
-        fetch('/map/getDynamic')
+        fetch(process.env.PUBLIC_URL + '/test-data-dynamic.json')
+        //fetch('/map/getDynamic')
         .then(response => response.json())
         .then(data => {
             console.log('Loading Dynamic Map Data..');
@@ -109,6 +110,24 @@ class MapItems extends React.Component{
 
     render() {
         if (this.state.staticLoaded && this.state.dynamicLoaded) {
+
+            /*
+            Performance issue: Assigning MapItem name each time renderer is called
+            Solution: Run name assignment only once for each MapItem.
+            */
+            
+            /* TODO
+            if (!this.state.namesLoaded) {
+                this.state.mapItems.map(mapItem => {
+
+                });
+
+                this.setState({
+                    namesLoaded: true
+                });
+            }
+            */
+
             console.log('Drawing Map Markers..');
             const mapMarkers = this.state.mapItems.map(mapItem => {
                 return(

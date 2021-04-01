@@ -18,29 +18,6 @@ class WarMap extends React.Component{
     }
 
     render() {
-
-        const mapRef = useRef();
-        const firstOverlayRef = useRef();
-        const secondOverlayRef = useRef();
-
-        const addLayers = () => {
-            if (mapRef.current && firstOverlayRef.current) {
-                const map = mapRef.current.leafletElement;
-                const firstLayer = firstOverlayRef.current.leafletElement;
-                const secondLayer = secondOverlayRef.current.leafletElement;
-                [firstLayer, secondLayer].forEach(layer => map.addLayer(layer));
-            }
-        };
-
-        const removeLayers = () => {
-          if (mapRef.current && firstOverlayRef.current) {
-              const map = mapRef.current.leafletElement;
-              const firstLayer = firstOverlayRef.current.leafletElement;
-              const secondLayer = secondOverlayRef.current.leafletElement;
-              [firstLayer, secondLayer].forEach(layer => map.removeLayer(layer));
-          }
-        };
-
         console.log('Drawing War Map..')
         return (
             <Map className='war-box' id='war-map'
@@ -95,14 +72,6 @@ class WarMap extends React.Component{
                     zIndex={200}
                 />
                 
-                <LayersControl position='topright'>
-                    <Overlay name="Layer 1">
-                        <LayersGroup id ='lg1' ref = {firstOverlayRef}>
-
-                        </LayersGroup>
-                    </Overlay>
-                </LayersControl>
-
                 {/*
                 <LayersControl position='topright'>
                     <BaseLayer name='Original Map'>
