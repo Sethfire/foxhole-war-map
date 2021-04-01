@@ -27,5 +27,9 @@ As well as the Foxhole game developers for their invaluable help and assistance:
 
 ### Contact
 Discord server - https://discord.gg/DJuAkTk
+<<<<<<< HEAD
 
 Sethfire#5176
+=======
+My discord - Sethfire#5176
+>>>>>>> 7b68d7551579527b87b42dda443de870e07155a1
