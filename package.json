@@ -1,0 +1,14 @@
+{
+  "name": "foxhole-war-map",
+  "version": "4.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Sethfire",
+  "dependencies": {
+    "express": "^4.17.1",
+    "xhr2": "^0.2.1"
+  }
+}

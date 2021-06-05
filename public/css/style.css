@@ -1,0 +1,36 @@
+html, body {
+    height: 100%;
+    width: 100vw;
+    margin: 0;
+}
+
+body {
+    font-family: 'Jost';
+}
+
+#map{
+    height: 100%;
+    background-color: #222222;
+}
+
+.region-label{
+    white-space:nowrap;
+    text-shadow: 0 0 0.1em black, 0 0 0.1em black,
+          0 0 0.1em black,0 0 0.1em black,0 0 0.1em;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+  
+a:link {
+    color: #d67b52;
+}
+a:visited {
+    color: #d67b52;
+}
+a:hover {
+    color: #d67b52;
+}
+a:active {
+    color: #d67b52;
+}
