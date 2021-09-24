@@ -1,7 +1,7 @@
 import { mapLayers } from "./MapLayers.js";
 
 const HTMLIcons = {
-    StaticBase: "<img src='./icons/MapIconStaticBase2.png' style='width:24px;height:24px;vertical-align:middle;'/>",
+    TownBase: "<img src='./icons/MapIconTownBase1.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     RelicBase: "<img src='./icons/MapIconRelicBase.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     Keep: "<img src='./icons/MapIconKeep.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     Safehouse: "<img src='./icons/MapIconSafehouse.png' style='width:24px;height:24px;vertical-align:middle;'/>",
@@ -45,7 +45,7 @@ const overlaysTree = {
         {
             label: "<strong>Bases</strong>",
             children: [
-                { label: HTMLIcons.StaticBase + " Bases",                       layer: mapLayers.StaticBases },
+                { label: HTMLIcons.TownBase + " Town Bases",                    layer: mapLayers.TownBases },
                 { label: HTMLIcons.RelicBase + ' Relic Bases',                  layer: mapLayers.RelicBases },
                 { label: HTMLIcons.Keep + ' Keeps',                             layer: mapLayers.Keeps },
                 { label: HTMLIcons.Safehouse + ' Safehouses',                   layer: mapLayers.Safehouses },

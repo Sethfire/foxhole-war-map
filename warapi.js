@@ -1,29 +1,45 @@
 const XMLHttpRequest = require('xhr2');
 const fs = require('fs');
 
-const regions = ["DeadLandsHex",        //3 
-                "CallahansPassageHex",  //4
-                "MarbanHollow",         //5
-                "UmbralWildwoodHex",    //6
-                "MooringCountyHex",     //7
-                "HeartlandsHex",        //8
-                "LochMorHex",           //9
-                "LinnMercyHex",         //10
-                "ReachingTrailHex",     //11
-                "StonecradleHex",       //12
-                "FarranacCoastHex",     //13
-                "WestgateHex",          //14
-                "FishermansRowHex",     //15
-                "OarbreakerHex",        //16                 
-                "GreatMarchHex",        //17
-                "TempestIslandHex",     //18
-                "GodcroftsHex",         //19
-                "EndlessShoreHex",      //20
-                "AllodsBightHex",       //21
-                "WeatheredExpanseHex",  //22
-                "DrownedValeHex",       //23
-                "ShackledChasmHex",     //24
-                "ViperPitHex"]          //25
+const regions = [
+    "DeadLandsHex",        //3 
+    "CallahansPassageHex",  //4
+    "MarbanHollow",         //5
+    "UmbralWildwoodHex",    //6
+    "MooringCountyHex",     //7
+    "HeartlandsHex",        //8
+    "LochMorHex",           //9
+    "LinnMercyHex",         //10
+    "ReachingTrailHex",     //11
+    "StonecradleHex",       //12
+    "FarranacCoastHex",     //13
+    "WestgateHex",          //14
+    "FishermansRowHex",     //15
+    "OarbreakerHex",        //16                 
+    "GreatMarchHex",        //17
+    "TempestIslandHex",     //18
+    "GodcroftsHex",         //19
+    "EndlessShoreHex",      //20
+    "AllodsBightHex",       //21
+    "WeatheredExpanseHex",  //22
+    "DrownedValeHex",       //23
+    "ShackledChasmHex",     //24
+    "ViperPitHex", //25
+    "NevishLineHex", //29
+    "AcrithiaHex", //30
+    "RedRiverHex", //31
+    "CallumsCapeHex", //32
+    "SpeakingWoodsHex", //33
+    "BasinSionnachHex", //34
+    "HowlCountyHex", //35
+    "ClansheadValleyHex", //36
+    "MorgensCrossingHex", //37
+    "TheFingersHex", //38
+    "TerminusHex", //39
+    "KalokaiHex", //40
+    "AshFieldsHex", //41
+    "OriginHex" //42
+]          
 
 module.exports.updateWarData = function () {
     //console.log("Updating War Data");

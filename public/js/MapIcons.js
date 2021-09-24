@@ -6,22 +6,22 @@ const MapIcon = L.Icon.extend({
     }
 });
 
-export const StaticBase1 = [
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase1.png"}),
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase1Colonial.png"}),
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase1Warden.png"})
+export const TownBase1 = [
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier1.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier1Colonial.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier1Warden.png"})
 ]
 
-export const StaticBase2 = [
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase2.png"}),
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase2Colonial.png"}),
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase2Warden.png"})
+export const TownBase2 = [
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier2.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier2Colonial.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier2Warden.png"})
 ]
 
-export const StaticBase3 = [
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase3.png"}),
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase3Colonial.png"}),
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase3Warden.png"})
+export const TownBase3 = [
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier3.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier3Colonial.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier3Warden.png"})
 ]
 
 export const Safehouse = [

@@ -22,7 +22,7 @@ const map = L.map("map", {
         mapLayers.RegionNames,
         mapLayers.RegionBorders,
 
-        mapLayers.StaticBases,
+        mapLayers.TownBases,
         mapLayers.RelicBases,
         mapLayers.Keeps,
         mapLayers.Safehouses,
