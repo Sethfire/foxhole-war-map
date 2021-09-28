@@ -1,30 +1,37 @@
-const warapi = require('./warapi.js');
+import express from 'express';
+import {updateWarData} from './warapi.js';
 
-const express = require('express');
+// __dirname workaround
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const app = express();
 
 app.use('/map', express.static('public'));
 
-app.get('/map/api/dynamic', function(request, response) {
+app.get('/map', (request, response) => {
+    response.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/map/api/dynamic', (request, response) => {
     response.sendFile(__dirname + '/data/dynamic.json');
 });
 
-app.get('/map/api/static', function(request, response) {
+app.get('/map/api/static', (request, response) => {
     response.sendFile(__dirname + '/data/static.json');
 });
 
-app.get('/map/api/activemaps', function(request, response) {
-    response.sendFile(__dirname + '/data/activemaps.json');
-});
-
-app.get('/map', function(request, response) {
-    response.sendFile(__dirname + '/views/index.html');
+app.get('/map/api/regions', (request, response) => {
+    response.sendFile(__dirname + '/data/regions.json');
 });
 
 const port = 3002;
 app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`)
-});
+    console.log(`App listening at ${port}`);
 
-warapi.updateWarData();
-setInterval(warapi.updateWarData, 60000);
+    updateWarData();
+    setInterval(updateWarData, 60000);
+});

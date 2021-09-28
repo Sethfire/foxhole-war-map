@@ -206,7 +206,7 @@ export default class MapItem{
             case 52:
                 this.description = 'Seaport';
                 this.iconImage = MapIcon.Seaport[this.teamId];
-                this.layer = mapLayers.SeaPorts;
+                this.layer = mapLayers.Seaports;
                 this.pane = 'structuresPane';
                 break;
             case 53:

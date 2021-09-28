@@ -22,7 +22,7 @@ export const mapLayers = {
     Shipyards: new L.LayerGroup(),
     ConstructionYards: new L.LayerGroup(),
     MassProductionFactories: new L.LayerGroup(),
-    SeaPorts: new L.LayerGroup(),
+    Seaports: new L.LayerGroup(),
     EngineeringCenters: new L.LayerGroup(),
     
     SalvageFields: new L.LayerGroup(),

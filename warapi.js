@@ -1,129 +1,111 @@
-const XMLHttpRequest = require('xhr2');
-const fs = require('fs');
+import XMLHttpRequest from 'xhr2';
+import fs from 'fs';
 
-const regions = [
-    "DeadLandsHex",        //3 
-    "CallahansPassageHex",  //4
-    "MarbanHollow",         //5
-    "UmbralWildwoodHex",    //6
-    "MooringCountyHex",     //7
-    "HeartlandsHex",        //8
-    "LochMorHex",           //9
-    "LinnMercyHex",         //10
-    "ReachingTrailHex",     //11
-    "StonecradleHex",       //12
-    "FarranacCoastHex",     //13
-    "WestgateHex",          //14
-    "FishermansRowHex",     //15
-    "OarbreakerHex",        //16                 
-    "GreatMarchHex",        //17
-    "TempestIslandHex",     //18
-    "GodcroftsHex",         //19
-    "EndlessShoreHex",      //20
-    "AllodsBightHex",       //21
-    "WeatheredExpanseHex",  //22
-    "DrownedValeHex",       //23
-    "ShackledChasmHex",     //24
-    "ViperPitHex", //25
-    "NevishLineHex", //29
-    "AcrithiaHex", //30
-    "RedRiverHex", //31
-    "CallumsCapeHex", //32
-    "SpeakingWoodsHex", //33
-    "BasinSionnachHex", //34
-    "HowlCountyHex", //35
-    "ClansheadValleyHex", //36
-    "MorgensCrossingHex", //37
-    "TheFingersHex", //38
-    "TerminusHex", //39
-    "KalokaiHex", //40
-    "AshFieldsHex", //41
-    "OriginHex" //42
-]          
+export function updateWarData() {
+    // Create data folder if it does not exist
+    if(!fs.existsSync('data')) fs.mkdirSync('data');
 
-module.exports.updateWarData = function () {
-    //console.log("Updating War Data");
+    // Query active regions
+    queryRegions().then(regions => {
+        // Save regions to file
+        fs.writeFileSync('data/regions.json', JSON.stringify(regions, null, 1));
 
-    queryActiveMaps().then(data => {
-        fs.writeFileSync('data/activemaps.json', JSON.stringify(data, null, 1));
-    });
-
-    var dynamicPromises = regions.map(region => queryRegionDynamic(region));
-    Promise.all(dynamicPromises).then(data => {
-        fs.writeFileSync('data/dynamic.json', JSON.stringify(data, null, 1));
-        //console.log("Dynamic War Data Updated");
-    });
-
-    var staticPromises = regions.map(region => queryRegionStatic(region));
-    Promise.all(staticPromises).then(data => {
-        fs.writeFileSync('data/static.json', JSON.stringify(data, null, 1));
-        //console.log("Static War Data Updated");
-    });
-}
+        // Query dynamic regions
+        const dynamicRegions = regions.map(region => queryRegionDynamic(region));
+        Promise.all(dynamicRegions).then(data => {
+            // Save dynamic regions to file
+            fs.writeFileSync('data/dynamic.json', JSON.stringify(data, null, 1));
+        }).catch(error => {
+            console.error(error);
+        });
     
-function queryRegionDynamic (region) {
+        // Query static regions
+        const staticRegions = regions.map(region => queryRegionStatic(region));
+        Promise.all(staticRegions).then(data => {
+            // Save synamic regions to file
+            fs.writeFileSync('data/static.json', JSON.stringify(data, null, 1));
+        }).catch(error => {
+            console.error(error);
+        });
+    }).catch(error => {
+        console.error(error);
+    });
+}
+
+/**
+ * Query Dynamic Region
+ * @param {string} region 
+ * @returns Dynamic Region Data
+ */
+function queryRegionDynamic(region) {
     return new Promise(function (resolve, reject) {
-        var request = new XMLHttpRequest();
+        const request = new XMLHttpRequest();
         request.open('GET', `https://war-service-live.foxholeservices.com/api/worldconquest/maps/${region}/dynamic/public`, true);
-        request.responseType = "json";
+        request.responseType = 'json';
 
         request.onload = function () {
-            if (request.status >= 200 && request.status < 300) {
+            if (request.status === 200) {
                 resolve(this.response);
             } else {
-                resolve(null);
+                reject(`Received ${request.status} from dynamic ${region} request`);
             }
         }
         
-        request.onerror = function (e) {
-	    console.log("== XHR Error ==");
-	    console.log(e);
-	    console.log(e.target.status);
-            resolve(null);
+        request.onerror = function(error) {
+            reject(error);
         }
 
         request.send();
     });
 }
 
-function queryRegionStatic (region) {
+/**
+ * Query Static Region
+ * @param {string} region 
+ * @returns Static Region Data
+ */
+function queryRegionStatic(region) {
     return new Promise(function (resolve, reject) {
-        var request = new XMLHttpRequest();
+        const request = new XMLHttpRequest();
         request.open('GET', `https://war-service-live.foxholeservices.com/api/worldconquest/maps/${region}/static`, true);
-        request.responseType = "json";
+        request.responseType = 'json';
 
         request.onload = function () {
-            if (request.status >= 200 && request.status < 300) {
+            if (request.status === 200) {
                 resolve(this.response);
             } else {
-                resolve(null);
+                reject(`Received ${request.status} from static ${region} request`);
             }
         }
         
-        request.onerror = function () {
-            resolve(null);
+        request.onerror = function (error) {
+            reject(error);
         }
 
         request.send();
     });
 }
 
-function queryActiveMaps () {
+/**
+ * Query Active Regions
+ * @returns List of regions
+ */
+function queryRegions() {
     return new Promise(function (resolve, reject) {
-        var request = new XMLHttpRequest();
+        const request = new XMLHttpRequest();
         request.open('GET', 'https://war-service-live.foxholeservices.com/api/worldconquest/maps', true);
-        request.responseType = "json";
+        request.responseType = 'json';
 
         request.onload = function () {
-            if (request.status >= 200 && request.status < 300) {
+            if (request.status === 200) {
                 resolve(this.response);
             } else {
-                resolve(null);
+                reject(`Received ${request.status} from regions request`);
             }
         }
         
-        request.onerror = function () {
-            resolve(null);
+        request.onerror = function (error) {
+            reject(error);
         }
 
         request.send();

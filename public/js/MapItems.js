@@ -3,13 +3,6 @@ import {o, w, k, regions} from './MapRegions.js';
 import MapItem from './MapItem.js';
 import MapTextItem from './MapTextItem.js';
 
-let mapState = {
-    mapTextItems: [],
-    mapItems: [],
-    staticLoaded: false,
-    dynamicLoaded: false,
-}
-
 // Converts a coordinate from the regional coordinate system to the world coordinate system
 function convertCoords(regionId, x, y) {
     const region = regions.find(x => x.id === regionId);
@@ -30,10 +23,10 @@ function compare(a, b) {
 }
 
 // Finds the closest name for a given map item. 
-function findClosest(mapItem) {
+function findClosest(staticMapItems, mapItem) {
     let closestNames = [];
 
-    mapState.mapTextItems.map(mapTextItem => {
+    staticMapItems.map(mapTextItem => {
         if (mapItem.regionId === mapTextItem.regionId) {
             let xdif = Math.abs(mapItem.x - mapTextItem.x);
             let ydif = Math.abs(mapItem.y - mapTextItem.y);
@@ -53,15 +46,16 @@ export function generateMapItems(){
         .then(response => response.json())
         .then(data => {
             console.log('Loading Static Map Data..');
+            let staticMapItems = [];
             data.forEach(region => {
                 if(region === null) { return; }
                 region.mapTextItems.map(mapTextItem => {
                     let coords = convertCoords(region.regionId, mapTextItem.x, mapTextItem.y);
                     let mapTextItemObject = new MapTextItem(region.regionId, mapTextItem.text, coords.xcoord, coords.ycoord);
-                    mapState.mapTextItems.push(mapTextItemObject);
+                    staticMapItems.push(mapTextItemObject);
                 });
             });
-            resolve();
+            resolve(staticMapItems);
         }).catch(error => {
             reject(error);
         });
@@ -72,25 +66,26 @@ export function generateMapItems(){
         .then(response => response.json())
         .then(data => {
             console.log('Loading Dynamic Map Data..');
+            let dynamicMapItems = [];
             data.forEach(region => {
                 if(region === null) { return; }
                 region.mapItems.map(mapItem => {
-                    let coords = convertCoords(region.regionId, mapItem.x, mapItem.y);
-                    let mapItemObject = new MapItem(region.regionId, mapItem.teamId, mapItem.iconType, coords.xcoord, coords.ycoord, mapItem.flags);
+                    const coords = convertCoords(region.regionId, mapItem.x, mapItem.y);
+                    const mapItemObject = new MapItem(region.regionId, mapItem.teamId, mapItem.iconType, coords.xcoord, coords.ycoord, mapItem.flags);
                     if (mapItemObject.iconImage != null) {
-                        mapState.mapItems.push(mapItemObject);
+                        dynamicMapItems.push(mapItemObject);
                     }
                 });
             });
-            resolve();
+            resolve(dynamicMapItems);
         }).catch(error => {
             reject(error);
         });
     });
 
-    retrieveStaticData.then(() => {
-        retrieveDynamicData.then(() => {
-            mapState.mapItems.map((mapItem) => {
+    retrieveStaticData.then((staticData) => {
+        retrieveDynamicData.then((dynamicData) => {
+            dynamicData.map((mapItem) => {
                 try{
                     let marker = L.marker([mapItem.y, mapItem.x], {icon:mapItem.iconImage, pane:mapItem.pane}).addTo(mapItem.layer);
         
@@ -105,7 +100,7 @@ export function generateMapItems(){
                             break;
                     }
         
-                    marker.bindTooltip(`${factionIcon}<strong><font color='#d67b52'>${findClosest(mapItem)}</font></strong><br />${mapItem.teamPrefix}${mapItem.description}<br />${mapItem.regionName}`);
+                    marker.bindTooltip(`${factionIcon}<strong><font color='#d67b52'>${findClosest(staticData, mapItem)}</font></strong><br />${mapItem.teamPrefix}${mapItem.description}<br />${mapItem.regionName}`);
                 }
                 catch(error){
                     console.log(`Error - Could not load Map Marker ${mapItem.iconType} in ${mapItem.regionName}.\n` + error);

@@ -39,7 +39,7 @@ const map = L.map("map", {
         mapLayers.Shipyards,
         mapLayers.ConstructionYards,
         mapLayers.MassProductionFactories,
-        mapLayers.SeaPorts,
+        mapLayers.Seaports,
         mapLayers.EngineeringCenters,
         
         mapLayers.SalvageFields,

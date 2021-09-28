@@ -1,8 +1,9 @@
 {
   "name": "foxhole-war-map",
-  "version": "4.0.0",
+  "version": "4.2.0",
   "description": "",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "node app.js"
   },
