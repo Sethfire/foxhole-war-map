@@ -1,12 +1,5 @@
-import express from 'express';
-import {updateWarData} from './warapi.js';
-
-// __dirname workaround
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const express = require('express');
+const warapi = require('./warapi.js');
 
 const app = express();
 
@@ -32,6 +25,6 @@ const port = 3002;
 app.listen(port, () => {
     console.log(`App listening at ${port}`);
 
-    updateWarData();
-    setInterval(updateWarData, 60000);
+    warapi.updateWarData();
+    setInterval(warapi.updateWarData, 60000);
 });

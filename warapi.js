@@ -1,7 +1,7 @@
-import XMLHttpRequest from 'xhr2';
-import fs from 'fs';
+const XMLHttpRequest = require('xhr2');
+const fs = require('fs');
 
-export function updateWarData() {
+module.exports.updateWarData = function () {
     // Create data folder if it does not exist
     if(!fs.existsSync('data')) fs.mkdirSync('data');
 
