@@ -4,16 +4,16 @@ export const mapLayers = {
 
     RegionNames: new L.LayerGroup(),
     RegionBorders: new L.LayerGroup(),
- 
+
     TownBases: new L.LayerGroup(),
     RelicBases: new L.LayerGroup(),
     Keeps: new L.LayerGroup(),
     Safehouses: new L.LayerGroup(),
-    
+
     ObservationTowers: new L.LayerGroup(),
     RocketSites: new L.LayerGroup(),
     CoastalGuns: new L.LayerGroup(),
-    
+
     Hospitals: new L.LayerGroup(),
     Factories: new L.LayerGroup(),
     VehicleFactories: new L.LayerGroup(),
@@ -24,11 +24,11 @@ export const mapLayers = {
     MassProductionFactories: new L.LayerGroup(),
     Seaports: new L.LayerGroup(),
     EngineeringCenters: new L.LayerGroup(),
-    
+
     SalvageFields: new L.LayerGroup(),
     ComponentFields: new L.LayerGroup(),
     SulfurFields: new L.LayerGroup(),
-    
+
     SalvageMines: new L.LayerGroup(),
     ComponentMines: new L.LayerGroup(),
     SulfurMines: new L.LayerGroup(),

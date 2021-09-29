@@ -42,7 +42,7 @@ function findClosest(staticMapItems, mapItem) {
 
 export function generateMapItems(){
     const retrieveStaticData = new Promise((resolve, reject) => {
-        fetch("/map/api/static")
+        fetch("/map/api/live-1/static")
         .then(response => response.json())
         .then(data => {
             console.log('Loading Static Map Data..');
@@ -62,7 +62,7 @@ export function generateMapItems(){
     });
         
     const retrieveDynamicData = new Promise((resolve, reject) => {
-        fetch("/map/api/dynamic")
+        fetch("/map/api/live-2/dynamic")
         .then(response => response.json())
         .then(data => {
             console.log('Loading Dynamic Map Data..');
