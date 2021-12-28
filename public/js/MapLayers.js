@@ -13,6 +13,8 @@ export const mapLayers = {
     ObservationTowers: new L.LayerGroup(),
     RocketSites: new L.LayerGroup(),
     CoastalGuns: new L.LayerGroup(),
+    StormCannons: new L.LayerGroup(),
+    IntelCenters: new L.LayerGroup(),
 
     Hospitals: new L.LayerGroup(),
     Factories: new L.LayerGroup(),

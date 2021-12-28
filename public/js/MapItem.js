@@ -233,6 +233,18 @@ export default class MapItem{
                 this.layer = mapLayers.TownBases;
                 this.pane = 'basesPane';
                 break;
+            case 59:
+                this.description = 'Storm Cannon';
+                this.iconImage = MapIcon.StormCannon[this.teamId];
+                this.layer = mapLayers.StormCannons;
+                this.pane = 'structuresPane';
+                break;
+            case 60:
+                this.description = 'Intel Center';
+                this.iconImage = MapIcon.IntelCenter[this.teamId];
+                this.layer = mapLayers.IntelCenters;
+                this.pane = 'structuresPane';
+                break;
             default:
                 console.log('Unknown IconType - ' + iconType);
         }

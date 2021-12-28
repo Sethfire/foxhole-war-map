@@ -50,6 +50,9 @@ const map = L.map("map", {
         mapLayers.ComponentMines,
         mapLayers.SulfurMines,
         mapLayers.OilWells,
+
+        mapLayers.StormCannons,
+        mapLayers.IntelCenters,
     ]
 });
 

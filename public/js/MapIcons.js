@@ -60,6 +60,18 @@ export const CoastalGun = [
     new MapIcon({iconUrl: "./icons/MapIconCoastalGunWarden.png"})
 ]
 
+export const StormCannon = [
+    new MapIcon({iconUrl: "./icons/MapIconStormCannon.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconStormCannonColonial.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconStormCannonWarden.png"})
+]
+
+export const IntelCenter = [
+    new MapIcon({iconUrl: "./icons/MapIconIntelCenter.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconIntelCenterColonial.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconIntelCenterWarden.png"})
+]
+
 export const Armory = [
     new MapIcon({iconUrl: "./icons/MapIconArmory.png"}),
     new MapIcon({iconUrl: "./icons/MapIconArmoryColonial.png"}),

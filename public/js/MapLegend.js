@@ -9,6 +9,8 @@ const HTMLIcons = {
     ObservationTower: "<img src='./icons/MapIconObservationTower.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     RocketSite: "<img src='./icons/MapIconRocketSite.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     CoastalGun: "<img src='./icons/MapIconCoastalGun.png' style='width:24px;height:24px;vertical-align:middle;'/>",
+    StormCannon: "<img src='./icons/MapIconStormCannon.png' style='width:24px;height:24px;vertical-align:middle;'/>",
+    IntelCenter: "<img src='./icons/MapIconIntelCenter.png' style='width:24px;height:24px;vertical-align:middle;'/>",
 
     Hospital: "<img src='./icons/MapIconHospital.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     Factory: "<img src='./icons/MapIconFactory.png' style='width:24px;height:24px;vertical-align:middle;'/>",
@@ -57,6 +59,13 @@ const overlaysTree = {
                 { label: HTMLIcons.ObservationTower + " Observation Towers",    layer: mapLayers.ObservationTowers },
                 { label: HTMLIcons.RocketSite + " Rocket Sites",                layer: mapLayers.RocketSites },
                 { label: HTMLIcons.CoastalGun + " Coastal Guns",                layer: mapLayers.CoastalGuns },
+            ]
+        },
+        {
+            label: "<strong>Super Weapons</strong>",
+            children: [
+                { label: HTMLIcons.StormCannon + " Storm Cannons",    layer: mapLayers.StormCannons },
+                { label: HTMLIcons.IntelCenter + " Intel Centers",                layer: mapLayers.IntelCenters },
             ]
         },
         {
