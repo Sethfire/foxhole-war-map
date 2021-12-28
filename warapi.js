@@ -1,113 +1,157 @@
 const XMLHttpRequest = require('xhr2');
 const fs = require('fs');
 
-const regions = ["DeadLandsHex",        //3 
-                "CallahansPassageHex",  //4
-                "MarbanHollow",         //5
-                "UmbralWildwoodHex",    //6
-                "MooringCountyHex",     //7
-                "HeartlandsHex",        //8
-                "LochMorHex",           //9
-                "LinnMercyHex",         //10
-                "ReachingTrailHex",     //11
-                "StonecradleHex",       //12
-                "FarranacCoastHex",     //13
-                "WestgateHex",          //14
-                "FishermansRowHex",     //15
-                "OarbreakerHex",        //16                 
-                "GreatMarchHex",        //17
-                "TempestIslandHex",     //18
-                "GodcroftsHex",         //19
-                "EndlessShoreHex",      //20
-                "AllodsBightHex",       //21
-                "WeatheredExpanseHex",  //22
-                "DrownedValeHex",       //23
-                "ShackledChasmHex",     //24
-                "ViperPitHex"]          //25
+const shards = [
+    { name:'live-1', url:'https://war-service-live.foxholeservices.com/api'},
+    { name:'live-2', url:'https://war-service-live-2.foxholeservices.com/api'},
+    //{ name:'dev', url:'https://war-service-dev.foxholeservices.com/api'}
+];
 
 module.exports.updateWarData = function () {
-    //console.log("Updating War Data");
+    // Create data folder if it does not exist
+    if(!fs.existsSync('data')) fs.mkdirSync('data');
+    // Loop through shards
+    shards.forEach(shard => {
+        // Create folders for each shard
+        if(!fs.existsSync(`data/${shard.name}`)) fs.mkdirSync(`data/${shard.name}`);
+        
+        // Query active regions
+        queryRegions(shard).then(regions => {
+            // Save regions to file
+            fs.writeFileSync(`data/${shard.name}/regions.json`, JSON.stringify(regions, null, 1));
 
-    queryActiveMaps().then(data => {
-        fs.writeFileSync('data/activemaps.json', JSON.stringify(data, null, 1));
-    });
+            // Query war state
+            queryWarState(shard).then(data => {
+                fs.writeFileSync(`data/${shard.name}/war.json`, JSON.stringify(data, null, 1));
+            }).catch(error => {
+                console.error(error);
+            });
 
-    var dynamicPromises = regions.map(region => queryRegionDynamic(region));
-    Promise.all(dynamicPromises).then(data => {
-        fs.writeFileSync('data/dynamic.json', JSON.stringify(data, null, 1));
-        //console.log("Dynamic War Data Updated");
-    });
+            // Query dynamic regions
+            Promise.all(regions.map(region => queryRegionDynamic(shard, region))).then(data => {
+                // Save dynamic regions to file
+                fs.writeFileSync(`data/${shard.name}/dynamic.json`, JSON.stringify(data, null, 1));
+            }).catch(error => {
+                console.error(error);
+            });
 
-    var staticPromises = regions.map(region => queryRegionStatic(region));
-    Promise.all(staticPromises).then(data => {
-        fs.writeFileSync('data/static.json', JSON.stringify(data, null, 1));
-        //console.log("Static War Data Updated");
-    });
+            // Query static regions
+            Promise.all(regions.map(region => queryRegionStatic(shard, region))).then(data => {
+                // Save static regions to file
+                fs.writeFileSync(`data/${shard.name}/static.json`, JSON.stringify(data, null, 1));
+            }).catch(error => {
+                console.error(error);
+            });
+        }).catch(error => {
+            console.error(error);
+        });
+    }); 
 }
-    
-function queryRegionDynamic (region) {
+
+/**
+ * Query Dynamic Region
+ * @param shard
+ * @param region
+ * @returns Dynamic Region Data
+ */
+function queryRegionDynamic(shard, region) {
     return new Promise(function (resolve, reject) {
-        var request = new XMLHttpRequest();
-        request.open('GET', `https://war-service-live.foxholeservices.com/api/worldconquest/maps/${region}/dynamic/public`, true);
-        request.responseType = "json";
+        const request = new XMLHttpRequest();
+        request.open('GET', `${shard.url}/worldconquest/maps/${region}/dynamic/public`, true);
+        request.responseType = 'json';
 
         request.onload = function () {
-            if (request.status >= 200 && request.status < 300) {
+            if (request.status === 200) {
                 resolve(this.response);
             } else {
-                resolve(null);
+                reject(`Received ${request.status} from dynamic ${region} request`);
             }
         }
         
-        request.onerror = function (e) {
-	    console.log("== XHR Error ==");
-	    console.log(e);
-	    console.log(e.target.status);
-            resolve(null);
+        request.onerror = function(error) {
+            reject(error);
         }
 
         request.send();
     });
 }
 
-function queryRegionStatic (region) {
+/**
+ * Query Static Region
+ * @param shard
+ * @param region
+ * @returns Static Region Data
+ */
+function queryRegionStatic(shard, region) {
     return new Promise(function (resolve, reject) {
-        var request = new XMLHttpRequest();
-        request.open('GET', `https://war-service-live.foxholeservices.com/api/worldconquest/maps/${region}/static`, true);
-        request.responseType = "json";
+        const request = new XMLHttpRequest();
+        request.open('GET', `${shard.url}/worldconquest/maps/${region}/static`, true);
+        request.responseType = 'json';
 
         request.onload = function () {
-            if (request.status >= 200 && request.status < 300) {
+            if (request.status === 200) {
                 resolve(this.response);
             } else {
-                resolve(null);
+                reject(`Received ${request.status} from static ${region} request`);
             }
         }
         
-        request.onerror = function () {
-            resolve(null);
+        request.onerror = function (error) {
+            reject(error);
         }
 
         request.send();
     });
 }
 
-function queryActiveMaps () {
+/**
+ * Query Active Regions
+ * @param shard
+ * @returns List of regions
+ */
+function queryRegions(shard) {
     return new Promise(function (resolve, reject) {
-        var request = new XMLHttpRequest();
-        request.open('GET', 'https://war-service-live.foxholeservices.com/api/worldconquest/maps', true);
-        request.responseType = "json";
+        const request = new XMLHttpRequest();
+        request.open('GET', `${shard.url}/worldconquest/maps`, true);
+        request.responseType = 'json';
 
         request.onload = function () {
-            if (request.status >= 200 && request.status < 300) {
+            if (request.status === 200) {
                 resolve(this.response);
             } else {
-                resolve(null);
+                reject(`Received ${request.status} from regions request`);
             }
         }
         
-        request.onerror = function () {
-            resolve(null);
+        request.onerror = function (error) {
+            reject(error);
+        }
+
+        request.send();
+    });
+}
+
+/**
+ * Query War State
+ * @param shard
+ * @returns war state
+ */
+function queryWarState(shard) {
+    return new Promise(function (resolve, reject) {
+        const request = new XMLHttpRequest();
+        request.open('GET', `${shard.url}/worldconquest/war`, true);
+        request.responseType = 'json';
+
+        request.onload = function () {
+            if (request.status === 200) {
+                resolve(this.response);
+            } else {
+                reject(`Received ${request.status} from war state request`);
+            }
+        }
+        
+        request.onerror = function (error) {
+            reject(error);
         }
 
         request.send();

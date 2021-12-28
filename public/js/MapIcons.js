@@ -6,22 +6,22 @@ const MapIcon = L.Icon.extend({
     }
 });
 
-export const StaticBase1 = [
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase1.png"}),
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase1Colonial.png"}),
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase1Warden.png"})
+export const TownBase1 = [
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier1.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier1Colonial.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier1Warden.png"})
 ]
 
-export const StaticBase2 = [
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase2.png"}),
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase2Colonial.png"}),
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase2Warden.png"})
+export const TownBase2 = [
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier2.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier2Colonial.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier2Warden.png"})
 ]
 
-export const StaticBase3 = [
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase3.png"}),
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase3Colonial.png"}),
-    new MapIcon({iconUrl: "./icons/MapIconStaticBase3Warden.png"})
+export const TownBase3 = [
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier3.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier3Colonial.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconTownBaseTier3Warden.png"})
 ]
 
 export const Safehouse = [
@@ -58,6 +58,18 @@ export const CoastalGun = [
     new MapIcon({iconUrl: "./icons/MapIconCoastalGun.png"}),
     new MapIcon({iconUrl: "./icons/MapIconCoastalGunColonial.png"}),
     new MapIcon({iconUrl: "./icons/MapIconCoastalGunWarden.png"})
+]
+
+export const StormCannon = [
+    new MapIcon({iconUrl: "./icons/MapIconStormCannon.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconStormCannonColonial.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconStormCannonWarden.png"})
+]
+
+export const IntelCenter = [
+    new MapIcon({iconUrl: "./icons/MapIconIntelCenter.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconIntelCenterColonial.png"}),
+    new MapIcon({iconUrl: "./icons/MapIconIntelCenterWarden.png"})
 ]
 
 export const Armory = [

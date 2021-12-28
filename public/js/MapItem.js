@@ -1,11 +1,14 @@
 import * as MapIcon from './MapIcons.js';
 import * as MapData from './MapRegions.js';
-import { mapLayers } from "./MapLayers.js";
+import { mapLayers } from './MapLayers.js';
+import { regions } from './MapRegions.js';
 
 export default class MapItem{
     constructor(regionId, teamId, iconType, x, y, flags) {
         this.regionId = regionId;
-        this.regionName = MapData.regions[regionId-3].name;
+        
+        const region = regions.find(x => x.id === regionId);
+        this.regionName = region.name;
         this.iconType = iconType;
         this.x = x;
         this.y = y;
@@ -31,6 +34,7 @@ export default class MapItem{
         }
         
         switch(iconType) {
+            /*
             case 5:
                 this.description = 'Town Hall (Tier 1)';
                 this.iconImage = MapIcon.StaticBase1[this.teamId];
@@ -49,6 +53,7 @@ export default class MapItem{
                 this.layer = mapLayers.StaticBases;
                 this.pane = 'basesPane';
                 break;
+            */
             case 11:
                 this.description = 'Hospital';
                 this.iconImage = MapIcon.Hospital[this.teamId];
@@ -201,7 +206,7 @@ export default class MapItem{
             case 52:
                 this.description = 'Seaport';
                 this.iconImage = MapIcon.Seaport[this.teamId];
-                this.layer = mapLayers.SeaPorts;
+                this.layer = mapLayers.Seaports;
                 this.pane = 'structuresPane';
                 break;
             case 53:
@@ -210,6 +215,36 @@ export default class MapItem{
                 this.layer = mapLayers.CoastalGuns;
                 this.pane = 'structuresPane';
             break;
+            case 56:
+                this.description = 'Town Base (Tier 1)';
+                this.iconImage = MapIcon.TownBase1[this.teamId];
+                this.layer = mapLayers.TownBases;
+                this.pane = 'basesPane';
+                break;
+            case 57:
+                this.description = 'Town Base (Tier 2)';
+                this.iconImage = MapIcon.TownBase2[this.teamId];
+                this.layer = mapLayers.TownBases;
+                this.pane = 'basesPane';
+                break;
+            case 58:
+                this.description = 'Town Base (Tier 3)';
+                this.iconImage = MapIcon.TownBase3[this.teamId];
+                this.layer = mapLayers.TownBases;
+                this.pane = 'basesPane';
+                break;
+            case 59:
+                this.description = 'Storm Cannon';
+                this.iconImage = MapIcon.StormCannon[this.teamId];
+                this.layer = mapLayers.StormCannons;
+                this.pane = 'structuresPane';
+                break;
+            case 60:
+                this.description = 'Intel Center';
+                this.iconImage = MapIcon.IntelCenter[this.teamId];
+                this.layer = mapLayers.IntelCenters;
+                this.pane = 'structuresPane';
+                break;
             default:
                 console.log('Unknown IconType - ' + iconType);
         }

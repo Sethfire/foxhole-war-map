@@ -22,7 +22,7 @@ const map = L.map("map", {
         mapLayers.RegionNames,
         mapLayers.RegionBorders,
 
-        mapLayers.StaticBases,
+        mapLayers.TownBases,
         mapLayers.RelicBases,
         mapLayers.Keeps,
         mapLayers.Safehouses,
@@ -39,7 +39,7 @@ const map = L.map("map", {
         mapLayers.Shipyards,
         mapLayers.ConstructionYards,
         mapLayers.MassProductionFactories,
-        mapLayers.SeaPorts,
+        mapLayers.Seaports,
         mapLayers.EngineeringCenters,
         
         mapLayers.SalvageFields,
@@ -50,6 +50,9 @@ const map = L.map("map", {
         mapLayers.ComponentMines,
         mapLayers.SulfurMines,
         mapLayers.OilWells,
+
+        mapLayers.StormCannons,
+        mapLayers.IntelCenters,
     ]
 });
 

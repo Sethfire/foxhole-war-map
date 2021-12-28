@@ -6,7 +6,7 @@ const mapWidth = mapBounds[1][1] - mapBounds[0][1];
 const mapOrigin = {x:128, y:-128};
 
 export const o = mapOrigin; // Shortened
-export const w = mapWidth/5.5; // Standard Region Width
+export const w = mapWidth/6.06; // Standard Region Width
 export const k = w*Math.sqrt(3)/2; // Standard Region Height
 
 export const regions = [
@@ -36,6 +36,24 @@ export const regions = [
     {id:23,name:"The Drowned Vale",     center:[o.y-0.5*k,o.x+0.75*w]},
     {id:24,name:"Shackled Chasm",       center:[o.y-1.5*k,o.x+0.75*w]},
     {id:25,name:"Viper Pit",            center:[o.y+1.5*k,o.x+0.75*w]},
+    //{id:26,name:"",center:[]},
+    //{id:27,name:"",center:[]},
+    //{id:28,name:"",center:[]},
+    {id:29,name: "Nevish Line",         center:[o.y+1.5*k,o.x-2.25*w] },
+    {id:30,name: "Acrithia",            center:[o.y-2.5*k,o.x+0.75*w]},
+    {id:31,name: "Red River",           center:[o.y-2.5*k,o.x-0.75*w] },
+    {id:32,name: "Callum's Cape",       center:[o.y+2*k,o.x-1.5*w]},
+    {id:33,name: "Speaking Woods",      center:[o.y+2.5*k,o.x-0.75*w]},
+    {id:34,name: "Basin Sionnach",      center:[o.y+3*k,o.x]},
+    {id:35,name: "Howl County",         center:[o.y+2.5*k,o.x+0.75*w]},
+    {id:36,name: "Clanshead Valley",    center:[o.y+2*k,o.x+1.5*w]},
+    {id:37,name: "Morgens Crossing",    center:[o.y+1.5*k,o.x+ 2.25*w]},
+    {id:38,name: "The Fingers",         center:[o.y-1.5*k,o.x+ 2.25*w]},
+    {id:39,name: "Terminus",            center:[o.y-2*k,o.x+1.5*w]},
+    {id:40,name: "Kalokai",             center:[o.y-3*k,o.x]},
+    {id:41,name: "Ash Fields",          center:[o.y-2*k,o.x-1.5*w]},
+    {id:42,name: "Origin",              center:[o.y-1.5*k,o.x-2.25*w]},
+  
 ];
 
 const regionBorders = regions.map(region => {

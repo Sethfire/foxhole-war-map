@@ -1,7 +1,7 @@
 import { mapLayers } from "./MapLayers.js";
 
 const HTMLIcons = {
-    StaticBase: "<img src='./icons/MapIconStaticBase2.png' style='width:24px;height:24px;vertical-align:middle;'/>",
+    TownBase: "<img src='./icons/MapIconTownBaseTier1.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     RelicBase: "<img src='./icons/MapIconRelicBase.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     Keep: "<img src='./icons/MapIconKeep.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     Safehouse: "<img src='./icons/MapIconSafehouse.png' style='width:24px;height:24px;vertical-align:middle;'/>",
@@ -9,6 +9,8 @@ const HTMLIcons = {
     ObservationTower: "<img src='./icons/MapIconObservationTower.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     RocketSite: "<img src='./icons/MapIconRocketSite.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     CoastalGun: "<img src='./icons/MapIconCoastalGun.png' style='width:24px;height:24px;vertical-align:middle;'/>",
+    StormCannon: "<img src='./icons/MapIconStormCannon.png' style='width:24px;height:24px;vertical-align:middle;'/>",
+    IntelCenter: "<img src='./icons/MapIconIntelCenter.png' style='width:24px;height:24px;vertical-align:middle;'/>",
 
     Hospital: "<img src='./icons/MapIconHospital.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     Factory: "<img src='./icons/MapIconFactory.png' style='width:24px;height:24px;vertical-align:middle;'/>",
@@ -19,7 +21,7 @@ const HTMLIcons = {
     Shipyard: "<img src='./icons/MapIconShipyard.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     ConstructionYard: "<img src='./icons/MapIconConstructionYard.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     MassProductionFactory: "<img src='./icons/MapIconMassProductionFactory.png' style='width:24px;height:24px;vertical-align:middle;'/>",
-    SeaPort: "<img src='./icons/MapIconSeaPort.png' style='width:24px;height:24px;vertical-align:middle;'/>",
+    Seaport: "<img src='./icons/MapIconSeaport.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     EngineeringCenter: "<img src='./icons/MapIconTechCenter.png' style='width:24px;height:24px;vertical-align:middle;'/>",
     
     SalvageField: "<img src='./icons/MapIconSalvage.png' style='width:24px;height:24px;vertical-align:middle;'/>",
@@ -45,7 +47,7 @@ const overlaysTree = {
         {
             label: "<strong>Bases</strong>",
             children: [
-                { label: HTMLIcons.StaticBase + " Bases",                       layer: mapLayers.StaticBases },
+                { label: HTMLIcons.TownBase + " Town Bases",                    layer: mapLayers.TownBases },
                 { label: HTMLIcons.RelicBase + ' Relic Bases',                  layer: mapLayers.RelicBases },
                 { label: HTMLIcons.Keep + ' Keeps',                             layer: mapLayers.Keeps },
                 { label: HTMLIcons.Safehouse + ' Safehouses',                   layer: mapLayers.Safehouses },
@@ -60,6 +62,13 @@ const overlaysTree = {
             ]
         },
         {
+            label: "<strong>Super Weapons</strong>",
+            children: [
+                { label: HTMLIcons.StormCannon + " Storm Cannons",    layer: mapLayers.StormCannons },
+                { label: HTMLIcons.IntelCenter + " Intel Centers",                layer: mapLayers.IntelCenters },
+            ]
+        },
+        {
             label: "<strong>Logistics</strong>",
             children: [
                 { label: HTMLIcons.Hospital + " Hospitals",                     layer: mapLayers.Hospitals },
@@ -70,7 +79,7 @@ const overlaysTree = {
                 { label: HTMLIcons.Shipyard + " Shipyards",                     layer: mapLayers.Shipyards },
                 { label: HTMLIcons.ConstructionYard + " Construction Yards",    layer: mapLayers.ConstructionYards },
                 { label: HTMLIcons.MassProductionFactory + " Mass Production Factories",  layer: mapLayers.MassProductionFactories },
-                { label: HTMLIcons.SeaPort + " Sea Ports",                      layer: mapLayers.SeaPorts },
+                { label: HTMLIcons.Seaport + " Sea Ports",                      layer: mapLayers.Seaports },
                 { label: HTMLIcons.EngineeringCenter + " Engineering Centers",  layer: mapLayers.EngineeringCenters },
             ]
         },
